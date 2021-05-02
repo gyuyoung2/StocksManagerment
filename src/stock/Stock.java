@@ -4,18 +4,23 @@ package stock;
 import java.util.Scanner;
 
 public class Stock { //Stocks클래스에 저장변수 필드 선언 
-	protected StockKind kind = StockKind.Korea;
+	protected StockKind kind = StockKind.Korea; //주식 종류
 	protected String StocksName; //사용자가 입력한 값을 저장하고 name배열에 저장된 값을 반환할 변수 선언
 	protected String name; //사용자가 주식 종목 입력한 값을 저장하는 변수 선언
 	protected int buyStock; //사용자가 주식를 매수한 가격 값을 저장하는 변수 선언
 	protected int goalPrice; //사용자가 주식의 목표가를 입력한 값을 저장하는 변수 선언
 	protected String memo; //사용자가 이 종목에 대한 메모한 값을 저장하는 변수 선언
+	protected int Dollar; //사용자가 해외주식을 입력할 경우 한화에서 달러로 변경한 값을 저장하는 변수 선언
 	
 	public Stock() { 
 	}
 	
-	public Stock(String StocksName, int buyStock, int goalPrice, String memo) { 
-		//Stock 클래스 인자값안에 주식종목명, 매수가, 목표가, 종목 메모 순차적으로 저장함
+	public Stock(StockKind kind) { //method overloading (종류)
+		this.kind = kind;
+	}
+	
+	public Stock(StockKind kind, String StocksName, int buyStock, int goalPrice, String memo) {  //Stock 클래스 인자값 안에 주식 종류, 주식종목명, 매수가, 목표가, 종목 메모 순차적으로 저장함
+		this.kind = kind; //주식 종류를 kind에 할당
 		this.StocksName = StocksName; //주식종목명을 StocksName에 할당
 		this.buyStock = buyStock; //매수가를 buyStock에 할당 
 		this.goalPrice = goalPrice; //목표가를 goalPrice에 할당
@@ -62,8 +67,27 @@ public class Stock { //Stocks클래스에 저장변수 필드 선언
 		this.memo = memo; //인자값으로 받은 메모 값을 memo에 할당
 	}
 	
-	public void printInfo() { //주식정보를 출력해주는 printInfo() method 
-		System.out.println("종목명: "+ StocksName + " 매수가: "+buyStock+"원 목표가: "+goalPrice+"원 메모: "+memo);//주식정보 출력
+	public int getDollar() { //getDollar() method 생성
+		return Dollar; //반환값으로 현재 Dollar 값 반환
+	}
+	
+	public void setDollar(int Dollar) { //setDollar() method생성
+		this.Dollar = Dollar; //인자값으로 받은 달러 값을 Dollar에 할당
+	}
+	
+	
+	public void printInfo() { //주식정보를 출력해주는 printInfo() method
+		String skind = "none";
+		switch(this.kind) { //주식 종류 판별
+		case Korea:
+			skind = "국내주식";
+			break;
+		case Oversea:
+			skind = "해외주식";
+			break;
+		default:
+		}
+		System.out.println("주식 종류: "+ skind +"종목명: "+ StocksName + " 매수가: "+buyStock+"원 목표가: "+goalPrice+"원 메모: "+memo);//주식정보 출력
 	}
 	
 	public void getUserInput(Scanner input) { //정보를 입력하는 getUserInput method 생성

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import stock.KoreaStock;
-import stock.Stock;	
+import stock.OverseaStock;
+import stock.Stock;
+import stock.StockKind;	
 
 public class StocksManager { 
 	ArrayList<Stock> stocks = new ArrayList<Stock>(); //ArrayList를 활용하기 위해 stocks 객체 생성
@@ -23,19 +25,19 @@ public class StocksManager {
 			System.out.print("주식종류를 선택해주세요 between 1 - 2: "); //사용자에게 종목종류를 입력받을려고 안내문 출력
 			kind = input.nextInt(); //사용자가 입력한 값을 kind변수에 할당
 			if (kind == 1) { //사용자가 국내주식을 선택
-				stock = new KoreaStock(); // 생성자 생성
+				stock = new KoreaStock(StockKind.Korea); // 생성자 생성
 				stock.getUserInput(input); //Stock 클래스의 getUserInput() method 실행
 				stocks.add(stock); //자료형ArrayList Stocks 클래스의 안 속성들에 값 add함수로 할당 
 				break;// 종료
 			}
 			else if (kind == 2) { //사용자가 해외주식을 선택
-				stock = new Stock(); //생성자 생성
+				stock = new OverseaStock(StockKind.Oversea); //생성자 생성
 				stock.getUserInput(input); //Stock 클래스의 getUserInput() method 실행
 				stocks.add(stock); //자료형ArrayList Stocks 클래스의 안 속성들에 값 add함수로 할당  
 				break; //종료
 			}
 			else {
-				System.out.print("주식종류를 선택해주세요: "); //사용자에게 올바른 값을 입력할때까지 출력
+				System.out.print("주식종류를 선택해주세요 1 or 2: "); //사용자에게 올바른 값을 입력할때까지 출력
 			}
 		}
 	}
