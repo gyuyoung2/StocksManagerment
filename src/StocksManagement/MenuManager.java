@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class MenuManager {
 	
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in); //»ç¿ëÀÚ¿¡°Ô ÀÔ·Â¹Ş±âÀ§ÇØ ScannerÅ¬·¡½º »ı¼º
-		StocksManager stocksManager = new StocksManager(input); //°¢°¢ ¸Å´ºÀÇ ±â´É method¸¦ È°¿ëÇÏ±â À§ÇØStocksManager Å¬·¡½º »ı¼º
+		Scanner input = new Scanner(System.in); //ì‚¬ìš©ìì—ê²Œ ì…ë ¥ë°›ê¸°ìœ„í•´ Scannerí´ë˜ìŠ¤ ìƒì„±.
+		StocksManager stocksManager = new StocksManager(input); //ê°ê° ë§¤ë‰´ì˜ ê¸°ëŠ¥ methodë¥¼ í™œìš©í•˜ê¸° ìœ„í•´StocksManager í´ë˜ìŠ¤ ìƒì„±
 				
-		int num= -1;// »ç¿ëÀÚ°¡ ¸Ş´º ÀÔ·ÂÇÒ º¯¼ö ¼±¾ğ°ú ÃÊ±âÈ­
-		while (num != 5) { //¸Å´º ¼³Á¤
+		int num= -1;// ì‚¬ìš©ìê°€ ë©”ë‰´ ì…ë ¥í•  ë³€ìˆ˜ ì„ ì–¸ê³¼ ì´ˆê¸°í™”
+		while (num != 5) { //ë§¤ë‰´ ì„¤ì •
 			System.out.println("### Stocks Management System Menu ###");
 			System.out.println("1. Add Stocks");
 			System.out.println("2. Delete Stocks");
@@ -17,22 +17,22 @@ public class MenuManager {
 			System.out.println("4. View Stocks");
 			System.out.println("5. Exit");
 			System.out.print("Select one number between 1 - 5:");
-			num = input.nextInt(); //»ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ °ªÀ» Á¤¼öÇüÀ¸·Î º¯¼ö¿¡ ÀúÀå
+			num = input.nextInt(); //ì‚¬ìš©ìê°€ ì…ë ¥í•œ ê°’ì„ ì •ìˆ˜í˜•ìœ¼ë¡œ ë³€ìˆ˜ì— ì €ì¥
 			
-			if (num == 1 ) { //switch±¸¹®À» ÅëÇØ »ç¿ëÀÚ°¡ »ç¿ëÇÏ°íÀÚ ÇÏ´Â ¸Ş´º·Î ÀÌµ¿
-				stocksManager.addStocks();//ÁÖ½Ä Á¾¸ñ µî·ÏÇÏ´Â ÇÔ¼ö ½ÇÇà
+			if (num == 1 ) { //switchêµ¬ë¬¸ì„ í†µí•´ ì‚¬ìš©ìê°€ ì‚¬ìš©í•˜ê³ ì í•˜ëŠ” ë©”ë‰´ë¡œ ì´ë™
+				stocksManager.addStocks();//ì£¼ì‹ ì¢…ëª© ë“±ë¡í•˜ëŠ” í•¨ìˆ˜ ì‹¤í–‰
 			}
 			else if (num == 2) {
-				stocksManager.deleteStocks(); //ÁÖ½Ä Á¾¸ñ »èÁ¦ÇÏ´Â ÇÔ¼ö ½ÇÇà
+				stocksManager.deleteStocks(); //ì£¼ì‹ ì¢…ëª© ì‚­ì œí•˜ëŠ” í•¨ìˆ˜ ì‹¤í–‰
 			}
 			else if (num == 3) {
-				stocksManager.editStocks(); //°ü½ÉÁ¾¸ñ¿¡ ´ã±ä Á¾¸ñµéÀ» ¼öÁ¤ÇÏ´Â ÇÔ¼ö ½ÇÇà
+				stocksManager.editStocks(); //ê´€ì‹¬ì¢…ëª©ì— ë‹´ê¸´ ì¢…ëª©ë“¤ì„ ìˆ˜ì •í•˜ëŠ” í•¨ìˆ˜ ì‹¤í–‰
 			}
 			else if (num == 4){
-				stocksManager.viewStocks(); //°ü½ÉÁ¾¸ñÀ» º¼¼öÀÖ´Â ÇÔ¼ö ½ÇÇà
+				stocksManager.viewStocks(); //ê´€ì‹¬ì¢…ëª©ì„ ë³¼ìˆ˜ìˆëŠ” í•¨ìˆ˜ ì‹¤í–‰
 			}
 			else if (num == 5) { 
-				break;//ÇÁ·Î±×·¥ Á¾·á
+				break;//í”„ë¡œê·¸ë¨ ì¢…ë£Œ
 			}
 		}
 	}
