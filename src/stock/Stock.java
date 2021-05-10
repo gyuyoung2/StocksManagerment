@@ -3,112 +3,80 @@ package stock;
 
 import java.util.Scanner;
 
-public class Stock { //StocksÅ¬·¡½º¿¡ ÀúÀåº¯¼ö ÇÊµå ¼±¾ğ 
-	protected StockKind kind = StockKind.Korea; //ÁÖ½Ä Á¾·ù
-	protected String StocksName; //»ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ °ªÀ» ÀúÀåÇÏ°í name¹è¿­¿¡ ÀúÀåµÈ °ªÀ» ¹İÈ¯ÇÒ º¯¼ö ¼±¾ğ
-	protected String name; //»ç¿ëÀÚ°¡ ÁÖ½Ä Á¾¸ñ ÀÔ·ÂÇÑ °ªÀ» ÀúÀåÇÏ´Â º¯¼ö ¼±¾ğ
-	protected int buyStock; //»ç¿ëÀÚ°¡ ÁÖ½Ä¸¦ ¸Å¼öÇÑ °¡°İ °ªÀ» ÀúÀåÇÏ´Â º¯¼ö ¼±¾ğ
-	protected int goalPrice; //»ç¿ëÀÚ°¡ ÁÖ½ÄÀÇ ¸ñÇ¥°¡¸¦ ÀÔ·ÂÇÑ °ªÀ» ÀúÀåÇÏ´Â º¯¼ö ¼±¾ğ
-	protected String memo; //»ç¿ëÀÚ°¡ ÀÌ Á¾¸ñ¿¡ ´ëÇÑ ¸Ş¸ğÇÑ °ªÀ» ÀúÀåÇÏ´Â º¯¼ö ¼±¾ğ
-	protected int Dollar; //»ç¿ëÀÚ°¡ ÇØ¿ÜÁÖ½ÄÀ» ÀÔ·ÂÇÒ °æ¿ì ÇÑÈ­¿¡¼­ ´Ş·¯·Î º¯°æÇÑ °ªÀ» ÀúÀåÇÏ´Â º¯¼ö ¼±¾ğ
+public abstract class Stock { //Stocksí´ë˜ìŠ¤ì— ì €ì¥ë³€ìˆ˜ í•„ë“œ ì„ ì–¸ , Stocksì˜ ê°ì²´ë¥¼ ìƒì„±í•˜ì§€ ì•ŠìŒ.
+	protected StockKind kind = StockKind.Korea; //ì£¼ì‹ ì¢…ë¥˜
+	protected String StocksName; //ì‚¬ìš©ìê°€ ì…ë ¥í•œ ê°’ì„ ì €ì¥í•˜ê³  nameë°°ì—´ì— ì €ì¥ëœ ê°’ì„ ë°˜í™˜í•  ë³€ìˆ˜ ì„ ì–¸
+	protected String name; //ì‚¬ìš©ìê°€ ì£¼ì‹ ì¢…ëª© ì…ë ¥í•œ ê°’ì„ ì €ì¥í•˜ëŠ” ë³€ìˆ˜ ì„ ì–¸
+	protected int buyStock; //ì‚¬ìš©ìê°€ ì£¼ì‹ë¥¼ ë§¤ìˆ˜í•œ ê°€ê²© ê°’ì„ ì €ì¥í•˜ëŠ” ë³€ìˆ˜ ì„ ì–¸
+	protected int goalPrice; //ì‚¬ìš©ìê°€ ì£¼ì‹ì˜ ëª©í‘œê°€ë¥¼ ì…ë ¥í•œ ê°’ì„ ì €ì¥í•˜ëŠ” ë³€ìˆ˜ ì„ ì–¸
+	protected String memo; //ì‚¬ìš©ìê°€ ì´ ì¢…ëª©ì— ëŒ€í•œ ë©”ëª¨í•œ ê°’ì„ ì €ì¥í•˜ëŠ” ë³€ìˆ˜ ì„ ì–¸
+	protected int Dollar; //ì‚¬ìš©ìê°€ í•´ì™¸ì£¼ì‹ì„ ì…ë ¥í•  ê²½ìš° í•œí™”ì—ì„œ ë‹¬ëŸ¬ë¡œ ë³€ê²½í•œ ê°’ì„ ì €ì¥í•˜ëŠ” ë³€ìˆ˜ ì„ ì–¸
 	
 	public Stock() { 
 	}
 	
-	public Stock(StockKind kind) { //method overloading (Á¾·ù)
+	public Stock(StockKind kind) { //method overloading (ì¢…ë¥˜)
 		this.kind = kind;
 	}
 	
-	public Stock(StockKind kind, String StocksName, int buyStock, int goalPrice, String memo) {  //Stock Å¬·¡½º ÀÎÀÚ°ª ¾È¿¡ ÁÖ½Ä Á¾·ù, ÁÖ½ÄÁ¾¸ñ¸í, ¸Å¼ö°¡, ¸ñÇ¥°¡, Á¾¸ñ ¸Ş¸ğ ¼øÂ÷ÀûÀ¸·Î ÀúÀåÇÔ
-		this.kind = kind; //ÁÖ½Ä Á¾·ù¸¦ kind¿¡ ÇÒ´ç
-		this.StocksName = StocksName; //ÁÖ½ÄÁ¾¸ñ¸íÀ» StocksName¿¡ ÇÒ´ç
-		this.buyStock = buyStock; //¸Å¼ö°¡¸¦ buyStock¿¡ ÇÒ´ç 
-		this.goalPrice = goalPrice; //¸ñÇ¥°¡¸¦ goalPrice¿¡ ÇÒ´ç
-		this.memo = memo; //Á¾¸ñ ¸Ş¸ğ¸¦ memo¿¡ ÇÒ´ç
+	public Stock(StockKind kind, String StocksName, int buyStock, int goalPrice, String memo) {  //Stock í´ë˜ìŠ¤ ì¸ìê°’ ì•ˆì— ì£¼ì‹ ì¢…ë¥˜, ì£¼ì‹ì¢…ëª©ëª…, ë§¤ìˆ˜ê°€, ëª©í‘œê°€, ì¢…ëª© ë©”ëª¨ ìˆœì°¨ì ìœ¼ë¡œ ì €ì¥í•¨
+		this.kind = kind; //ì£¼ì‹ ì¢…ë¥˜ë¥¼ kindì— í• ë‹¹
+		this.StocksName = StocksName; //ì£¼ì‹ì¢…ëª©ëª…ì„ StocksNameì— í• ë‹¹
+		this.buyStock = buyStock; //ë§¤ìˆ˜ê°€ë¥¼ buyStockì— í• ë‹¹ 
+		this.goalPrice = goalPrice; //ëª©í‘œê°€ë¥¼ goalPriceì— í• ë‹¹
+		this.memo = memo; //ì¢…ëª© ë©”ëª¨ë¥¼ memoì— í• ë‹¹
 	}
 	
-	public StockKind getKind() { //getKind() method »ı¼º
-		return kind; //¹İÈ¯°ªÀ¸·Î ÇöÀç kind °ª ¹İÈ¯
+	public StockKind getKind() { //getKind() method ìƒì„±
+		return kind; //ë°˜í™˜ê°’ìœ¼ë¡œ í˜„ì¬ kind ê°’ ë°˜í™˜
 	}
 
-	public void setKind(StockKind kind) { //setKind() method »ı¼º
-		this.kind = kind; //ÀÎÀÚ°ªÀ¸·Î ¹ŞÀº ÁÖ½Ä Á¾·ù °ªÀ» kind¿¡ ÇÒ´ç
+	public void setKind(StockKind kind) { //setKind() method ìƒì„±
+		this.kind = kind; //ì¸ìê°’ìœ¼ë¡œ ë°›ì€ ì£¼ì‹ ì¢…ë¥˜ ê°’ì„ kindì— í• ë‹¹
 	}
 
-	public String getStocksName() { //getStocksName() method »ı¼º
-		return StocksName; //¹İÈ¯°ªÀ¸·Î ÇöÀç StocksName °ª ¹İÈ¯
+	public String getStocksName() { //getStocksName() method ìƒì„±
+		return StocksName; //ë°˜í™˜ê°’ìœ¼ë¡œ í˜„ì¬ StocksName ê°’ ë°˜í™˜
 	}
 
-	public void setStocksName(String stocksName) { //setStocksName() method »ı¼º
-		this.StocksName = stocksName; //ÀÎÀÚ°ªÀ¸·Î ¹ŞÀº Á¾¸ñ ÀÌ¸§À» StocksName¿¡ ÇÒ´ç
+	public void setStocksName(String stocksName) { //setStocksName() method ìƒì„±
+		this.StocksName = stocksName; //ì¸ìê°’ìœ¼ë¡œ ë°›ì€ ì¢…ëª© ì´ë¦„ì„ StocksNameì— í• ë‹¹
 	}
 
-	public int getBuyStock() { //getBuyStock() method »ı¼º
-		return buyStock; //¹İÈ¯°ªÀ¸·Î ÇöÀç buyStock °ª ¹İÈ¯
+	public int getBuyStock() { //getBuyStock() method ìƒì„±
+		return buyStock; //ë°˜í™˜ê°’ìœ¼ë¡œ í˜„ì¬ buyStock ê°’ ë°˜í™˜
 	}
 
-	public void setBuyStock(int buyStock) { //setBuyStock() method »ı¼º
-		this.buyStock = buyStock; //ÀÎÀÚ°ªÀ¸·Î ¹ŞÀº ¸Å¼ö°¡ °ªÀ» buyStock¿¡ ÇÒ´ç
+	public void setBuyStock(int buyStock) { //setBuyStock() method ìƒì„±
+		this.buyStock = buyStock; //ì¸ìê°’ìœ¼ë¡œ ë°›ì€ ë§¤ìˆ˜ê°€ ê°’ì„ buyStockì— í• ë‹¹
 	}
 
-	public int getGoalPrice() { //getGoalPrice() method »ı¼º
-		return goalPrice; //¹İÈ¯°ªÀ¸·Î ÇöÀç goalPrice °ª ¹İÈ¯
+	public int getGoalPrice() { //getGoalPrice() method ìƒì„±
+		return goalPrice; //ë°˜í™˜ê°’ìœ¼ë¡œ í˜„ì¬ goalPrice ê°’ ë°˜í™˜
 	}
 
-	public void setGoalPrice(int goalPrice) { //setGoalPrice() method »ı¼º
-		this.goalPrice = goalPrice; //ÀÎÀÚ°ªÀ¸·Î ¹ŞÀº ¸ñÇ¥°¡ °ªÀ» goalPrice¿¡ ÇÒ´ç
+	public void setGoalPrice(int goalPrice) { //setGoalPrice() method ìƒì„±
+		this.goalPrice = goalPrice; //ì¸ìê°’ìœ¼ë¡œ ë°›ì€ ëª©í‘œê°€ ê°’ì„ goalPriceì— í• ë‹¹
 	}
 	
-	public String getMemo() { //getMemo() method »ı¼º
-		return memo; //¹İÈ¯°ªÀ¸·Î ÇöÀç memo °ª ¹İÈ¯
+	public String getMemo() { //getMemo() method ìƒì„±
+		return memo; //ë°˜í™˜ê°’ìœ¼ë¡œ í˜„ì¬ memo ê°’ ë°˜í™˜
 	}
 
-	public void setmemo(String memo) { //setmemo() method»ı¼º
-		this.memo = memo; //ÀÎÀÚ°ªÀ¸·Î ¹ŞÀº ¸Ş¸ğ °ªÀ» memo¿¡ ÇÒ´ç
+	public void setmemo(String memo) { //setmemo() methodìƒì„±.
+		this.memo = memo; //ì¸ìê°’ìœ¼ë¡œ ë°›ì€ ë©”ëª¨ ê°’ì„ memoì— í• ë‹¹
 	}
 	
-	public int getDollar() { //getDollar() method »ı¼º
-		return Dollar; //¹İÈ¯°ªÀ¸·Î ÇöÀç Dollar °ª ¹İÈ¯
+	public int getDollar() { //getDollar() method ìƒì„±
+		return Dollar; //ë°˜í™˜ê°’ìœ¼ë¡œ í˜„ì¬ Dollar ê°’ ë°˜í™˜
 	}
 	
-	public void setDollar(int Dollar) { //setDollar() method»ı¼º
-		this.Dollar = Dollar; //ÀÎÀÚ°ªÀ¸·Î ¹ŞÀº ´Ş·¯ °ªÀ» Dollar¿¡ ÇÒ´ç
-	}
-	
-	
-	public void printInfo() { //ÁÖ½ÄÁ¤º¸¸¦ Ãâ·ÂÇØÁÖ´Â printInfo() method
-		String skind = "none";
-		switch(this.kind) { //ÁÖ½Ä Á¾·ù ÆÇº°
-		case Korea:
-			skind = "±¹³»ÁÖ½Ä";
-			break;
-		case Oversea:
-			skind = "ÇØ¿ÜÁÖ½Ä";
-			break;
-		default:
-		}
-		System.out.println("ÁÖ½Ä Á¾·ù: "+ skind +"Á¾¸ñ¸í: "+ StocksName + " ¸Å¼ö°¡: "+buyStock+"¿ø ¸ñÇ¥°¡: "+goalPrice+"¿ø ¸Ş¸ğ: "+memo);//ÁÖ½ÄÁ¤º¸ Ãâ·Â
-	}
-	
-	public void getUserInput(Scanner input) { //Á¤º¸¸¦ ÀÔ·ÂÇÏ´Â getUserInput method »ı¼º
-		System.out.print("ÁÖ½Ä Á¾¸ñ ¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä: "); //»ç¿ëÀÚ¿¡°Ô ÁÖ½Ä Á¾¸ñ¸íÀ» ÀÔ·Â ¾È³»¹® Ãâ·Â
-		String StocksName = input.next(); //»ç¿ëÀÚ¿¡°Ô Á¾¸ñ °ªÀ» ¹Ş¾Æ StocksÅ¬·¡½ºÀÇ StocksName¿¡ ÀúÀå
-		this.setStocksName(StocksName); //ÀÔ·Â¹ŞÀº °ªÀ» setStocksName methodÀÇ ÀÎÀÚ°ªÀ¸·Î µé¾î°¡ Á¾¸ñ¸íÀÌ ÀúÀåµÊ
-		
-		System.out.print("ÀÌ Á¾¸ñÀÇ ¸Å¼ö°¡¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä :"); //»ç¿ëÀÚ¿¡°Ô Á¾¸ñÀÇ ¸Å¼ö°¡¸¦ ¹Ş±âÀ§ÇØ ¾È³»¹® Ãâ·Â
-		int buyStock = input.nextInt(); //»ç¿ëÀÚ¿¡°Ô ¸Å¼ö°¡ °ªÀ» ¹Ş¾Æ StocksÅ¬·¡½ºÀÇ buyStock¿¡ ÀúÀå
-		this.setBuyStock(buyStock); //ÀÔ·Â¹ŞÀº °ªÀ» setBuyStock methodÀÇ ÀÎÀÚ°ªÀ¸·Î µé¾î°¡ ¸Å¼ö°¡ °ªÀÌ ÀúÀåµÊ
-		
-		System.out.print("ÀÌ Á¾¸ñÀÇ ¸ñÇ¥°¡¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä :"); //»ç¿ëÀÚ¿¡°Ô ¸ñÇ¥°¡¸¦ ¹Ş±âÀ§ÇØ ¾È³»¹® Ãâ·Â
-		int goalPrice = input.nextInt(); //»ç¿ëÀÚ¿¡°Ô ¸ñÇ¥°¡ °ªÀ» ¹Ş¾Æ StocksÅ¬·¡½ºÀÇ goalPrice¿¡ ÀúÀå
-		this.setGoalPrice(goalPrice); //ÀÔ·Â¹ŞÀº °ªÀ» setGoalPrice methodÀÇ ÀÎÀÚ°ªÀ¸·Î µé¾î°¡ ¸ñÇ¥°¡ °ªÀÌ ÀúÀåµÊ
-		
-		System.out.print("Á¾¸ñ ¸Ş¸ğ:"); //»ç¿ëÀÚ°¡ ÀÌ Á¾¸ñÀÇ ¸Ş¸ğ¸¦ ¹Ş±âÀ§ÇØ ¾È³»¹® Ãâ·Â
-		String memo = input.next(); //»ç¿ëÀÚ¿¡°Ô ¸Ş¸ğÀÇ ³»¿ëÀ» ¹Ş¾Æ StocksÅ¬·¡½ºÀÇ memo¿¡ ÀúÀå
-		this.setmemo(memo); //ÀÔ·Â¹ŞÀº °ªÀ» setmemo methodÀÇ ÀÎÀÚ°ªÀ¸·Î µé¾î°¡ Á¾¸ñ¸Ş¸ğ °ªÀÌ ÀúÀåµÊ
+	public void setDollar(int Dollar) { //setDollar() methodìƒì„±
+		this.Dollar = Dollar; //ì¸ìê°’ìœ¼ë¡œ ë°›ì€ ë‹¬ëŸ¬ ê°’ì„ Dollarì— í• ë‹¹
 	}
 	
 	
+	public abstract void printInfo(); //ê°ê°ì˜ í´ë˜ìŠ¤ì— printInfoê°€ ìˆìœ¼ë¯€ë¡œ, ì¶”ìƒí™” method ìƒì„±.
 	
 	
 }
