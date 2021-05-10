@@ -2,44 +2,58 @@ package stock;
 
 import java.util.Scanner;
 
-public class KoreaStock extends Stock { //KoreaStockÅ¬·¡½º°¡ Stock Å¬·¡½º¿¡ »ó¼Ó
+public class KoreaStock extends Stock implements StockInput { //KoreaStockí´ë˜ìŠ¤ê°€ Stock í´ë˜ìŠ¤ì— ìƒì† , StockInput interfaceë¥¼ í†µí•´ êµ¬í˜„ì„ í•¨.
 	
-	public KoreaStock(StockKind kind) { //koreaStock »ı¼º
+	public KoreaStock(StockKind kind) { //koreaStock ìƒì„±.
 		super(kind);
 	}
 	
 	
-	public void getUserInput(Scanner input) {
-		System.out.print("ÁÖ½Ä Á¾¸ñ ¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä: "); //»ç¿ëÀÚ¿¡°Ô ÁÖ½Ä Á¾¸ñ¸íÀ» ÀÔ·Â ¾È³»¹® Ãâ·Â
-		String StocksName = input.next(); //»ç¿ëÀÚ¿¡°Ô Á¾¸ñ °ªÀ» ¹Ş¾Æ StocksÅ¬·¡½ºÀÇ StocksName¿¡ ÀúÀå
-		this.setStocksName(StocksName); //ÀÔ·Â¹ŞÀº °ªÀ» setStocksName methodÀÇ ÀÎÀÚ°ªÀ¸·Î µé¾î°¡ Á¾¸ñ¸íÀÌ ÀúÀåµÊ
+	public void getUserInput(Scanner input) { //ì‚¬ìš©ìì˜ ì…ë ¥ì„ ë°›ëŠ” getUserInput method
+		System.out.print("ì£¼ì‹ ì¢…ëª© ëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”: "); //ì‚¬ìš©ìì—ê²Œ ì£¼ì‹ ì¢…ëª©ëª…ì„ ì…ë ¥ ì•ˆë‚´ë¬¸ ì¶œë ¥
+		String StocksName = input.next(); //ì‚¬ìš©ìì—ê²Œ ì¢…ëª© ê°’ì„ ë°›ì•„ Stocksí´ë˜ìŠ¤ì˜ StocksNameì— ì €ì¥
+		this.setStocksName(StocksName); //ì…ë ¥ë°›ì€ ê°’ì„ setStocksName methodì˜ ì¸ìê°’ìœ¼ë¡œ ë“¤ì–´ê°€ ì¢…ëª©ëª…ì´ ì €ì¥ë¨
 		
-		System.out.print("ÀÌ Á¾¸ñÀÇ ¸Å¼ö°¡¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä :"); //»ç¿ëÀÚ¿¡°Ô Á¾¸ñÀÇ ¸Å¼ö°¡¸¦ ¹Ş±âÀ§ÇØ ¾È³»¹® Ãâ·Â
-		int buyStock = input.nextInt(); //»ç¿ëÀÚ¿¡°Ô ¸Å¼ö°¡ °ªÀ» ¹Ş¾Æ StocksÅ¬·¡½ºÀÇ buyStock¿¡ ÀúÀå
-		this.setBuyStock(buyStock); //ÀÔ·Â¹ŞÀº °ªÀ» setBuyStock methodÀÇ ÀÎÀÚ°ªÀ¸·Î µé¾î°¡ ¸Å¼ö°¡ °ªÀÌ ÀúÀåµÊ
+		System.out.print("ì´ ì¢…ëª©ì˜ ë§¤ìˆ˜ê°€ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” :"); //ì‚¬ìš©ìì—ê²Œ ì¢…ëª©ì˜ ë§¤ìˆ˜ê°€ë¥¼ ë°›ê¸°ìœ„í•´ ì•ˆë‚´ë¬¸ ì¶œë ¥
+		int buyStock = input.nextInt(); //ì‚¬ìš©ìì—ê²Œ ë§¤ìˆ˜ê°€ ê°’ì„ ë°›ì•„ Stocksí´ë˜ìŠ¤ì˜ buyStockì— ì €ì¥
+		this.setBuyStock(buyStock); //ì…ë ¥ë°›ì€ ê°’ì„ setBuyStock methodì˜ ì¸ìê°’ìœ¼ë¡œ ë“¤ì–´ê°€ ë§¤ìˆ˜ê°€ ê°’ì´ ì €ì¥ë¨
 		
-		System.out.print("ÀÌ Á¾¸ñÀÇ ¸ñÇ¥°¡¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä :"); //»ç¿ëÀÚ¿¡°Ô ¸ñÇ¥°¡¸¦ ¹Ş±âÀ§ÇØ ¾È³»¹® Ãâ·Â
-		int goalPrice = input.nextInt(); //»ç¿ëÀÚ¿¡°Ô ¸ñÇ¥°¡ °ªÀ» ¹Ş¾Æ StocksÅ¬·¡½ºÀÇ goalPrice¿¡ ÀúÀå
-		this.setGoalPrice(goalPrice); //ÀÔ·Â¹ŞÀº °ªÀ» setGoalPrice methodÀÇ ÀÎÀÚ°ªÀ¸·Î µé¾î°¡ ¸ñÇ¥°¡ °ªÀÌ ÀúÀåµÊ
+		System.out.print("ì´ ì¢…ëª©ì˜ ëª©í‘œê°€ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” :"); //ì‚¬ìš©ìì—ê²Œ ëª©í‘œê°€ë¥¼ ë°›ê¸°ìœ„í•´ ì•ˆë‚´ë¬¸ ì¶œë ¥
+		int goalPrice = input.nextInt(); //ì‚¬ìš©ìì—ê²Œ ëª©í‘œê°€ ê°’ì„ ë°›ì•„ Stocksí´ë˜ìŠ¤ì˜ goalPriceì— ì €ì¥
+		this.setGoalPrice(goalPrice); //ì…ë ¥ë°›ì€ ê°’ì„ setGoalPrice methodì˜ ì¸ìê°’ìœ¼ë¡œ ë“¤ì–´ê°€ ëª©í‘œê°€ ê°’ì´ ì €ì¥ë¨
 		
-		char answer = 'x'; //»ç¿ëÀÚ¿¡°Ô ÀÔ·Â¹ŞÀ» °ªÀ» ÀúÀåÇÒ º¯¼ö ¼±¾ğ°ú ÃÊ±âÈ­
-		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') //»ç¿ëÀÚ°¡ ¿Ã¹Ù¸¥ ÀÔ·ÂÇÒ¶§±îÁö ¹İº¹
+		char answer = 'x'; //ì‚¬ìš©ìì—ê²Œ ì…ë ¥ë°›ì„ ê°’ì„ ì €ì¥í•  ë³€ìˆ˜ ì„ ì–¸ê³¼ ì´ˆê¸°í™”
+		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') //ì‚¬ìš©ìê°€ ì˜¬ë°”ë¥¸ ì…ë ¥í• ë•Œê¹Œì§€ ë°˜ë³µ
 		{
-			System.out.print("¸Ş¸ğ¸¦ ÇÏ½Ç²«°¡¿ä? (Y/N)"); //»ç¿ëÀÚ°¡ ÀÌ Á¾¸ñÀÇ ¸Ş¸ğ¸¦ ¹Ş±âÀ§ÇØ ¾È³»¹® Ãâ·Â
-			answer = input.next().charAt(0); //»ç¿ëÀÚ¿¡°Ô ¹®ÀÚ¿­ ÀÔ·Â¹ŞÀº °ªÀ» answer¿¡ ÀúÀå
-			if(answer =='y' || answer == 'Y' ) { //yÀÇ ¼Ò¹®ÀÚ ´ë¹®ÀÚ µÑÁß ÇÏ³ª¸é
-				System.out.print("memo"); //memo º¸±â Ãâ·Â
-				String memo = input.next(); //»ç¿ëÀÚ¿¡°Ô ¸Ş¸ğÀÇ ³»¿ëÀ» ¹Ş¾Æ StocksÅ¬·¡½ºÀÇ memo¿¡ ÀúÀå
-				this.setmemo(memo);  //ÀÔ·Â¹ŞÀº °ªÀ» setmemo methodÀÇ ÀÎÀÚ°ªÀ¸·Î µé¾î°¡ Á¾¸ñ¸Ş¸ğ °ªÀÌ ÀúÀåµÊ
-				break; //Á¾·á
+			System.out.print("ë©”ëª¨ë¥¼ í•˜ì‹¤ê»€ê°€ìš”? (Y/N)"); //ì‚¬ìš©ìê°€ ì´ ì¢…ëª©ì˜ ë©”ëª¨ë¥¼ ë°›ê¸°ìœ„í•´ ì•ˆë‚´ë¬¸ ì¶œë ¥
+			answer = input.next().charAt(0); //ì‚¬ìš©ìì—ê²Œ ë¬¸ìì—´ ì…ë ¥ë°›ì€ ê°’ì„ answerì— ì €ì¥
+			if(answer =='y' || answer == 'Y' ) { //yì˜ ì†Œë¬¸ì ëŒ€ë¬¸ì ë‘˜ì¤‘ í•˜ë‚˜ë©´
+				System.out.print("memo"); //memo ë³´ê¸° ì¶œë ¥
+				String memo = input.next(); //ì‚¬ìš©ìì—ê²Œ ë©”ëª¨ì˜ ë‚´ìš©ì„ ë°›ì•„ Stocksí´ë˜ìŠ¤ì˜ memoì— ì €ì¥
+				this.setmemo(memo);  //ì…ë ¥ë°›ì€ ê°’ì„ setmemo methodì˜ ì¸ìê°’ìœ¼ë¡œ ë“¤ì–´ê°€ ì¢…ëª©ë©”ëª¨ ê°’ì´ ì €ì¥ë¨
+				break; //ì¢…ë£Œ
 			}
-			else if(answer=='n' || answer == 'N') { //nÀÇ ¼Ò¹®ÀÚ ´ë¹®ÀÚ µÑÁß ÇÏ³ª¸é
-				this.setmemo(""); //°ø¹é ÇÒ´ç
-				break; //Á¾·á
+			else if(answer=='n' || answer == 'N') { //nì˜ ì†Œë¬¸ì ëŒ€ë¬¸ì ë‘˜ì¤‘ í•˜ë‚˜ë©´
+				this.setmemo(""); //ê³µë°± í• ë‹¹
+				break; //ì¢…ë£Œ
 			}
 			else {
 			}
 		}
+	}
+	
+	public void printInfo() { //ì£¼ì‹ì •ë³´ë¥¼ ì¶œë ¥í•´ì£¼ëŠ” printInfo() method
+		String skind = "none";
+		switch(this.kind) { //ì£¼ì‹ ì¢…ë¥˜ íŒë³„
+		case Korea:
+			skind = "êµ­ë‚´ì£¼ì‹";
+			break;
+		case Oversea:
+			skind = "í•´ì™¸ì£¼ì‹";
+			break;
+		default:
+		}
+		System.out.println("ì£¼ì‹ ì¢…ë¥˜: "+ skind +"ì¢…ëª©ëª…: "+ StocksName + " ë§¤ìˆ˜ê°€: "+buyStock+"ì› ëª©í‘œê°€: "+goalPrice+"ì› ë©”ëª¨: "+memo);//ì£¼ì‹ì •ë³´ ì¶œë ¥
 	}
 	
 }
