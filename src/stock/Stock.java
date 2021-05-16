@@ -3,7 +3,10 @@ package stock;
 
 import java.util.Scanner;
 
-public abstract class Stock { //Stocks클래스에 저장변수 필드 선언 , Stocks의 객체를 생성하지 않음.
+import exception.SellException;
+
+public abstract class Stock implements StockInput { private static final int Null = 0;
+//Stocks클래스에 저장변수 필드 선언 , Stocks의 객체를 생성하지 않음.
 	protected StockKind kind = StockKind.Korea; //주식 종류
 	protected String StocksName; //사용자가 입력한 값을 저장하고 name배열에 저장된 값을 반환할 변수 선언
 	protected String name; //사용자가 주식 종목 입력한 값을 저장하는 변수 선언
@@ -47,7 +50,11 @@ public abstract class Stock { //Stocks클래스에 저장변수 필드 선언 , 
 		return buyStock; //반환값으로 현재 buyStock 값 반환
 	}
 
-	public void setBuyStock(int buyStock) { //setBuyStock() method 생성
+	public void setBuyStock(int buyStock) throws SellException { //setBuyStock() method 생성
+		if (buyStock<=0 || buyStock == Null) {
+			throw new SellException();
+		}
+		
 		this.buyStock = buyStock; //인자값으로 받은 매수가 값을 buyStock에 할당
 	}
 
@@ -78,5 +85,46 @@ public abstract class Stock { //Stocks클래스에 저장변수 필드 선언 , 
 	
 	public abstract void printInfo(); //각각의 클래스에 printInfo가 있으므로, 추상화 method 생성.
 	
+	public void setStockName(Scanner input) { //setStockName method 생성
+		System.out.print("종목 이름: "); //사용자에게 종목이름을 입력 안내문 출력
+		String StocksName = input.next(); //입력한 종목이름을 StocksName에 할당
+		this.setStocksName(StocksName); //그 입력된값을 setStocksName method의 인자값으로 들어가 이름이 저장됨
+	}	
+	
+	public void setStockPrice(Scanner input) { //setStockPrice method 생성
+		int buyStock = 0;
+		while (buyStock <= 0) {
+			System.out.print("종목 매수가: "); //사용자에게 종목 매수가를 입력 안내문 출력
+			buyStock = input.nextInt(); //입력한 매수가를 buyStock에 할당
+			try {
+				this.setBuyStock(buyStock);
+			} catch (SellException e) { //try/catch문을 활용함으로써 예외처리
+				System.out.println("매수가를 0원이상으로 적어주세요."); //오류 안내문 출력
+			}//그 입력된값을 setBuyStock method의 인자값으로 들어가 매수가 값이 저장됨
+		}
+	}
+	
+	public void setStockGoal(Scanner input) { //setStckGoal method 생성
+		System.out.print("이 종목의 목표가를 입력해주세요 :"); //사용자에게 목표가를 받기위해 안내문 출력
+		int goalPrice = input.nextInt(); //사용자에게 목표가 값을 받아 Stocks클래스의 goalPrice에 저장
+		this.setGoalPrice(goalPrice); //입력받은 값을 setGoalPrice method의 인자값으로 들어가 목표가 값이 저장됨
+	}
+	
+	public void setStockMemo(Scanner input) { //setStockMemo method 생성
+		System.out.print("memo"); //memo 보기 출력
+		String memo = input.next(); //사용자에게 메모의 내용을 받아 Stocks클래스의 memo에 저장
+		this.setmemo(memo);  //입력받은 값을 setmemo method의 인자값으로 들어가 종목메모 값이 저장됨
+	}
+	
+	public int setStockDollar(Scanner input) { //setStockDollar method 생성
+		int Dollar = 1170; //달러 변수에 현재 달러 저장
+		System.out.print("Exchange rate of Dollar:"); //환율 보기 출력
+		int Dollar1 = getBuyStock() / Dollar; // 매수가 환율계산
+		int Dollar2 = getGoalPrice() / Dollar; //목표가 환율계산
+		this.setDollar(Dollar1);  //입력받은 값을 setPriceDollar method의 인자값으로 들어가 매수가 환율값이 저장됨
+		System.out.print("매수가 환율: " + Dollar1 + "달러"); //매수가 달러 출력
+		System.out.println("목표가 환율: " + Dollar2 + "달러"); // 목표가 달러 출력
+		return Dollar1; //매수가 달러 반환
+	}
 	
 }
