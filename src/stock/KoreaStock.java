@@ -2,47 +2,25 @@ package stock;
 
 import java.util.Scanner;
 
-public class KoreaStock extends Stock implements StockInput { //KoreaStock클래스가 Stock 클래스에 상속 , StockInput interface를 통해 구현을 함.
+public class KoreaStock extends WorldStock { //KoreaStock클래스가 WorldStock에 상속받음
 	
-	public KoreaStock(StockKind kind) { //koreaStock 생성.
+	public KoreaStock(StockKind kind) { //koreaStock 생성
 		super(kind);
 	}
 	
-	
 	public void getUserInput(Scanner input) { //사용자의 입력을 받는 getUserInput method
-		System.out.print("주식 종목 명을 입력해주세요: "); //사용자에게 주식 종목명을 입력 안내문 출력
-		String StocksName = input.next(); //사용자에게 종목 값을 받아 Stocks클래스의 StocksName에 저장
-		this.setStocksName(StocksName); //입력받은 값을 setStocksName method의 인자값으로 들어가 종목명이 저장됨
-		
-		System.out.print("이 종목의 매수가를 입력해주세요 :"); //사용자에게 종목의 매수가를 받기위해 안내문 출력
-		int buyStock = input.nextInt(); //사용자에게 매수가 값을 받아 Stocks클래스의 buyStock에 저장
-		this.setBuyStock(buyStock); //입력받은 값을 setBuyStock method의 인자값으로 들어가 매수가 값이 저장됨
-		
-		System.out.print("이 종목의 목표가를 입력해주세요 :"); //사용자에게 목표가를 받기위해 안내문 출력
-		int goalPrice = input.nextInt(); //사용자에게 목표가 값을 받아 Stocks클래스의 goalPrice에 저장
-		this.setGoalPrice(goalPrice); //입력받은 값을 setGoalPrice method의 인자값으로 들어가 목표가 값이 저장됨
-		
-		char answer = 'x'; //사용자에게 입력받을 값을 저장할 변수 선언과 초기화
-		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') //사용자가 올바른 입력할때까지 반복
-		{
-			System.out.print("메모를 하실껀가요? (Y/N)"); //사용자가 이 종목의 메모를 받기위해 안내문 출력
-			answer = input.next().charAt(0); //사용자에게 문자열 입력받은 값을 answer에 저장
-			if(answer =='y' || answer == 'Y' ) { //y의 소문자 대문자 둘중 하나면
-				System.out.print("memo"); //memo 보기 출력
-				String memo = input.next(); //사용자에게 메모의 내용을 받아 Stocks클래스의 memo에 저장
-				this.setmemo(memo);  //입력받은 값을 setmemo method의 인자값으로 들어가 종목메모 값이 저장됨
-				break; //종료
-			}
-			else if(answer=='n' || answer == 'N') { //n의 소문자 대문자 둘중 하나면
-				this.setmemo(""); //공백 할당
-				break; //종료
-			}
-			else {
-			}
-		}
+		setStockName(input); //setStockName method를 통해 사용자에게 주식 종목명을 입력받음
+		setStockPrice(input); //setStockPrice method를 통해 사용자에게 주식 매수가를 입력받음
+		setStockGoal(input); //setStockGoal method를 통해 사용자에게 주식 목표가를 입력받음
+		setStockMemowithYN(input); //setStockMemowithYN method를 통해 사용자에게 메모를 여부와 메모를 입력받음
 	}
 	
 	public void printInfo() { //주식정보를 출력해주는 printInfo() method
+		String skind = getKindString(); //getKindString method에서 반환받은 skind의 값을 skind변수에 저장
+		System.out.println("주식 종류: "+ skind +"종목명: "+ StocksName + " 매수가: "+buyStock+"원 목표가: "+goalPrice+"원 메모: "+memo);//주식정보 출력
+	}
+	
+	public String getKindString() { //주식종류의 문자열을 가져오는 getKindString() method
 		String skind = "none";
 		switch(this.kind) { //주식 종류 판별
 		case Korea:
@@ -53,7 +31,6 @@ public class KoreaStock extends Stock implements StockInput { //KoreaStock클래
 			break;
 		default:
 		}
-		System.out.println("주식 종류: "+ skind +"종목명: "+ StocksName + " 매수가: "+buyStock+"원 목표가: "+goalPrice+"원 메모: "+memo);//주식정보 출력
+		return skind; //주식 종류 반환
 	}
-	
 }
