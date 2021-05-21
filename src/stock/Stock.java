@@ -1,12 +1,18 @@
 package stock;
 
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.SellException;
 
-public abstract class Stock implements StockInput { private static final int Null = 0;
-//Stocks클래스에 저장변수 필드 선언 , Stocks의 객체를 생성하지 않음.
+public abstract class Stock implements StockInput, Serializable { /** //Stocks클래스에 저장변수 필드 선언 , Stocks의 객체를 생성하지 않음.
+	 * 
+	 */
+	private static final long serialVersionUID = 8737937472405928517L;
+
+private static final int Null = 0;
+	
 	protected StockKind kind = StockKind.Korea; //주식 종류
 	protected String StocksName; //사용자가 입력한 값을 저장하고 name배열에 저장된 값을 반환할 변수 선언
 	protected String name; //사용자가 주식 종목 입력한 값을 저장하는 변수 선언
