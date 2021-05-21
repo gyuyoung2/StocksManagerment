@@ -1,18 +1,23 @@
 package StocksManagement;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import stock.KoreaStock;
 import stock.OverseaStock;
-import stock.Stock;
 import stock.StockInput;
 import stock.StockKind;	
 
-public class StocksManager { 
+public class StocksManager implements Serializable { //Serializable 구현 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8934422693209771066L;
+	
 	ArrayList<StockInput> stocks = new ArrayList<StockInput>(); //ArrayList를 활용하기 위해 stocks 객체 생성
-	Scanner input; //input 생성자 선언
+	transient Scanner input; //input 생성자 선언
 	StocksManager(Scanner input){ //생성자 인자값에 Scanner input을 넣으므로써 
 		this.input = input; //사용자가 입력하는 값 저장을 도와주는 input 생성
 	}
