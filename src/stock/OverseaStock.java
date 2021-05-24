@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class OverseaStock extends WorldStock { //OverseaStock 클래스가 WorldStock클래스에 상속
 	
 	
-	public OverseaStock(StockKind kind) { //OverseaStock 생성
+	public OverseaStock(StockKind kind) { //OverseaStock 생성.
 		super(kind);
 	}
 

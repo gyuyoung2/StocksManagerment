@@ -2,7 +2,7 @@ package stock;
 
 import java.util.Scanner;
 
-public abstract class WorldStock extends Stock { //WorldStock클래스는 Stock클래스에 상속
+public abstract class WorldStock extends Stock { //WorldStock클래스는 Stock클래스에 상속.
 
 	public WorldStock(StockKind kind) { //OverseaStock 생성
 		super(kind);

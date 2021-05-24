@@ -2,7 +2,7 @@ package stock;
 
 import java.util.Scanner;
 
-public class KoreaStock extends WorldStock { //KoreaStock클래스가 WorldStock에 상속받음
+public class KoreaStock extends WorldStock { //KoreaStock클래스가 WorldStock에 상속받음.
 	
 	public KoreaStock(StockKind kind) { //koreaStock 생성
 		super(kind);

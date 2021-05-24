@@ -10,7 +10,7 @@ import stock.OverseaStock;
 import stock.StockInput;
 import stock.StockKind;	
 
-public class StocksManager implements Serializable { //Serializable 구현 
+public class StocksManager implements Serializable { //Serializable 구현
 	/**
 	 * 
 	 */

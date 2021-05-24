@@ -6,7 +6,7 @@ import exception.SellException;
 
 public interface StockInput {
 	
-	public String getStocksName(); //getStockName abstract method 識情..
+	public String getStocksName(); //getStockName abstract method 識情.
 	
 	public void setStocksName(String stocksName); //setStocksName abstract method 識情.
 	

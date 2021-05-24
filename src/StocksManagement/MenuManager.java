@@ -15,7 +15,7 @@ public class MenuManager {
 	public static void main(String[] args) {
 
 		
-		Scanner input = new Scanner(System.in); //사용자에게 입력받기위해 Scanner클래스 생성.
+		Scanner input = new Scanner(System.in); //사용자에게 입력받기위해 Scanner클래스 생성
 		StocksManager stocksManager = getObject("stocksmanager.ser"); //직렬화 처리.(객체를 파일에 쓴다)
 		if(stocksManager == null) { //stocksManager가 비어있으면
 			stocksManager = new StocksManager(input);

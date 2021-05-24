@@ -13,7 +13,7 @@ public abstract class Stock implements StockInput, Serializable { /** //Stocks클
 
 private static final int Null = 0;
 	
-	protected StockKind kind = StockKind.Korea; //주식 종류
+	protected StockKind kind = StockKind.Korea; //주식 종류.
 	protected String StocksName; //사용자가 입력한 값을 저장하고 name배열에 저장된 값을 반환할 변수 선언
 	protected String name; //사용자가 주식 종목 입력한 값을 저장하는 변수 선언
 	protected int buyStock; //사용자가 주식를 매수한 가격 값을 저장하는 변수 선언
