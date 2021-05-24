@@ -1,5 +1,5 @@
 package exception;
 
-public class SellException extends Exception { //SellExceptionÅ¬·¡½º´Â Exception Å¬·¡½º¿¡ »ó¼Ó
+public class SellException extends Exception { //SellExceptioní´ë˜ìŠ¤ëŠ” Exception í´ë˜ìŠ¤ì— ìƒì†
 	
 }
