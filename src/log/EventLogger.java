@@ -16,9 +16,9 @@ public class EventLogger {
 	
 	public EventLogger(String fileName) {
 		try {
-			logmanager = LogManager.getLogManager();
-			logger = logmanager.getLogger(Logger.GLOBAL_LOGGER_NAME);
-			filehandler = new FileHandler(fileName);
+			logmanager = LogManager.getLogManager(); 
+			logger = logmanager.getLogger(Logger.GLOBAL_LOGGER_NAME); 
+			filehandler = new FileHandler(fileName); //filehandler 適掘什 持失切 持失.
 			filehandler.setFormatter(new SimpleFormatter());
 			logger.addHandler(filehandler);
 		} catch (IOException e) {
