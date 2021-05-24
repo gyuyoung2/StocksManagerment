@@ -10,46 +10,46 @@ import stock.OverseaStock;
 import stock.StockInput;
 import stock.StockKind;	
 
-public class StocksManager implements Serializable { //Serializable êµ¬í˜„ 
+public class StocksManager implements Serializable { //Serializable ±¸Çö 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8934422693209771066L;
 	
-	ArrayList<StockInput> stocks = new ArrayList<StockInput>(); //ArrayListë¥¼ í™œìš©í•˜ê¸° ìœ„í•´ stocks ê°ì²´ ìƒì„±
-	transient Scanner input; //input ìƒì„±ì ì„ ì–¸
-	StocksManager(Scanner input){ //ìƒì„±ì ì¸ìê°’ì— Scanner inputì„ ë„£ìœ¼ë¯€ë¡œì¨ 
-		this.input = input; //ì‚¬ìš©ìê°€ ì…ë ¥í•˜ëŠ” ê°’ ì €ì¥ì„ ë„ì™€ì£¼ëŠ” input ìƒì„±
+	ArrayList<StockInput> stocks = new ArrayList<StockInput>(); //ArrayList¸¦ È°¿ëÇÏ±â À§ÇØ stocks °´Ã¼ »ı¼º
+	transient Scanner input; //input »ı¼ºÀÚ ¼±¾ğ
+	StocksManager(Scanner input){ //»ı¼ºÀÚ ÀÎÀÚ°ª¿¡ Scanner inputÀ» ³ÖÀ¸¹Ç·Î½á 
+		this.input = input; //»ç¿ëÀÚ°¡ ÀÔ·ÂÇÏ´Â °ª ÀúÀåÀ» µµ¿ÍÁÖ´Â input »ı¼º
 	}
 	
 	
-	public void addStocks(){ //ì£¼ì‹'ì¢…ëª© ì •ë³´'ì¶”ê°€í•˜ëŠ” í•¨ìˆ˜ ìƒì„±
-		int kind = 0; //ì‚¬ìš©ìê°€ ë©”ë‰´ ì…ë ¥í•  ë³€ìˆ˜ ì„ ì–¸ê³¼ ì´ˆê¸°í™”
-		StockInput stockInput; //Stock í´ë˜ìŠ¤ ìƒì„±ì ìƒì„±
-		while(kind != 1 || kind != 2) { //ì‚¬ìš©ìê°€ 1,2 ì´ì™¸ì— ìˆ«ìë¥¼ ì…ë ¥í• ë•Œê¹Œì§€ ë°˜ë³µ
+	public void addStocks(){ //ÁÖ½Ä'Á¾¸ñ Á¤º¸'Ãß°¡ÇÏ´Â ÇÔ¼ö »ı¼º
+		int kind = 0; //»ç¿ëÀÚ°¡ ¸Ş´º ÀÔ·ÂÇÒ º¯¼ö ¼±¾ğ°ú ÃÊ±âÈ­
+		StockInput stockInput; //Stock Å¬·¡½º »ı¼ºÀÚ »ı¼º
+		while(kind != 1 || kind != 2) { //»ç¿ëÀÚ°¡ 1,2 ÀÌ¿Ü¿¡ ¼ıÀÚ¸¦ ÀÔ·ÂÇÒ¶§±îÁö ¹İº¹
 			try {
-			System.out.print("1. êµ­ë‚´ì£¼ì‹"); //êµ­ë‚´ì£¼ì‹ ì¢…ëª© ì¶”ê°€ ì•ˆë‚´
-			System.out.println(" 2. í•´ì™¸ì£¼ì‹"); //í•´ì™¸ì£¼ì‹ ì¢…ëª© ì¶”ê°€ ì•ˆë‚´
-			System.out.print("ì£¼ì‹ì¢…ë¥˜ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš” between 1 - 2: "); //ì‚¬ìš©ìì—ê²Œ ì¢…ëª©ì¢…ë¥˜ë¥¼ ì…ë ¥ë°›ì„ë ¤ê³  ì•ˆë‚´ë¬¸ ì¶œë ¥
-			kind = input.nextInt(); //ì‚¬ìš©ìê°€ ì…ë ¥í•œ ê°’ì„ kindë³€ìˆ˜ì— í• ë‹¹
-			if (kind == 1) { //ì‚¬ìš©ìê°€ êµ­ë‚´ì£¼ì‹ì„ ì„ íƒ
-				stockInput = new KoreaStock(StockKind.Korea); // ìƒì„±ì ìƒì„±
-				stockInput.getUserInput(input); //Stock í´ë˜ìŠ¤ì˜ getUserInput() method ì‹¤í–‰
-				stocks.add(stockInput); //ìë£Œí˜•ArrayList Stocks í´ë˜ìŠ¤ì˜ ì•ˆ ì†ì„±ë“¤ì— ê°’ addí•¨ìˆ˜ë¡œ í• ë‹¹ 
-				break;// ì¢…ë£Œ
+			System.out.print("1. ±¹³»ÁÖ½Ä"); //±¹³»ÁÖ½Ä Á¾¸ñ Ãß°¡ ¾È³»
+			System.out.println(" 2. ÇØ¿ÜÁÖ½Ä"); //ÇØ¿ÜÁÖ½Ä Á¾¸ñ Ãß°¡ ¾È³»
+			System.out.print("ÁÖ½ÄÁ¾·ù¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä between 1 - 2: "); //»ç¿ëÀÚ¿¡°Ô Á¾¸ñÁ¾·ù¸¦ ÀÔ·Â¹ŞÀ»·Á°í ¾È³»¹® Ãâ·Â
+			kind = input.nextInt(); //»ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ °ªÀ» kindº¯¼ö¿¡ ÇÒ´ç
+			if (kind == 1) { //»ç¿ëÀÚ°¡ ±¹³»ÁÖ½ÄÀ» ¼±ÅÃ
+				stockInput = new KoreaStock(StockKind.Korea); // »ı¼ºÀÚ »ı¼º
+				stockInput.getUserInput(input); //Stock Å¬·¡½ºÀÇ getUserInput() method ½ÇÇà
+				stocks.add(stockInput); //ÀÚ·áÇüArrayList Stocks Å¬·¡½ºÀÇ ¾È ¼Ó¼ºµé¿¡ °ª addÇÔ¼ö·Î ÇÒ´ç 
+				break;// Á¾·á
 			}
-			else if (kind == 2) { //ì‚¬ìš©ìê°€ í•´ì™¸ì£¼ì‹ì„ ì„ íƒ
-				stockInput = new OverseaStock(StockKind.Oversea); //ìƒì„±ì ìƒì„±
-				stockInput.getUserInput(input); //Stock í´ë˜ìŠ¤ì˜ getUserInput() method ì‹¤í–‰
-				stocks.add(stockInput); //ìë£Œí˜•ArrayList Stocks í´ë˜ìŠ¤ì˜ ì•ˆ ì†ì„±ë“¤ì— ê°’ addí•¨ìˆ˜ë¡œ í• ë‹¹  
-				break; //ì¢…ë£Œ
+			else if (kind == 2) { //»ç¿ëÀÚ°¡ ÇØ¿ÜÁÖ½ÄÀ» ¼±ÅÃ
+				stockInput = new OverseaStock(StockKind.Oversea); //»ı¼ºÀÚ »ı¼º
+				stockInput.getUserInput(input); //Stock Å¬·¡½ºÀÇ getUserInput() method ½ÇÇà
+				stocks.add(stockInput); //ÀÚ·áÇüArrayList Stocks Å¬·¡½ºÀÇ ¾È ¼Ó¼ºµé¿¡ °ª addÇÔ¼ö·Î ÇÒ´ç  
+				break; //Á¾·á
 			}
 			else {
-				System.out.print("ì£¼ì‹ì¢…ë¥˜ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš” 1 or 2: "); //ì‚¬ìš©ìì—ê²Œ ì˜¬ë°”ë¥¸ ê°’ì„ ì…ë ¥í• ë•Œê¹Œì§€ ì¶œë ¥
+				System.out.print("ÁÖ½ÄÁ¾·ù¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä 1 or 2: "); //»ç¿ëÀÚ¿¡°Ô ¿Ã¹Ù¸¥ °ªÀ» ÀÔ·ÂÇÒ¶§±îÁö Ãâ·Â
 			}
 		}
-			catch(InputMismatchException e) { //try/catchë¬¸ì„ í†µí•´ ì˜ˆì™¸ì²˜ë¦¬
-				System.out.println("Please put an integer between 1 and 2f!"); //ì˜¤ë¥˜ ì•ˆë‚´ë¬¸ ì¶œë ¥
+			catch(InputMismatchException e) { //try/catch¹®À» ÅëÇØ ¿¹¿ÜÃ³¸®
+				System.out.println("Please put an integer between 1 and 2f!"); //¿À·ù ¾È³»¹® Ãâ·Â
 				if(input.hasNext()) { 
 					input.next();
 				}
@@ -58,86 +58,86 @@ public class StocksManager implements Serializable { //Serializable êµ¬í˜„
 		}
 	}
 	
-	public void deleteStocks(){ //ì£¼ì‹'ì¢…ëª© ì •ë³´'ì‚­ì œí•˜ëŠ” í•¨ìˆ˜ ìƒì„±
-		System.out.println("ì–´ë–¤ ì¢…ëª©ì„ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?"); // ì‚¬ìš©ìì—ê²Œ ì‚­ì œ í•  ì¢…ëª© ì…ë ¥ ì•ˆë‚´ë¬¸ ì¶œë ¥
-		String name = input.next(); //ì‚­ì œí•  ì¢…ëª©ëª… ì…ë ¥ê°’ì„ nameì— í• ë‹¹
-		int index = findIndex(name); //findIndex methodì—ì„œ ë°˜í™˜í•œ indexê°’ì„ indexë³€ìˆ˜ì— ì €ì¥
-		removefromStocks(index, name); //removefromStocks methodë¥¼ í†µí•´ í•´ë‹¹ indexë°ì´í„° ì‚­ì œ
+	public void deleteStocks(){ //ÁÖ½Ä'Á¾¸ñ Á¤º¸'»èÁ¦ÇÏ´Â ÇÔ¼ö »ı¼º
+		System.out.println("¾î¶² Á¾¸ñÀ» »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?"); // »ç¿ëÀÚ¿¡°Ô »èÁ¦ ÇÒ Á¾¸ñ ÀÔ·Â ¾È³»¹® Ãâ·Â
+		String name = input.next(); //»èÁ¦ÇÒ Á¾¸ñ¸í ÀÔ·Â°ªÀ» name¿¡ ÇÒ´ç
+		int index = findIndex(name); //findIndex method¿¡¼­ ¹İÈ¯ÇÑ index°ªÀ» indexº¯¼ö¿¡ ÀúÀå
+		removefromStocks(index, name); //removefromStocks method¸¦ ÅëÇØ ÇØ´ç indexµ¥ÀÌÅÍ »èÁ¦
 		
 	}
 	
-	public int findIndex(String name) { //findIndex method ìƒì„±
-		int index = -1; //arrayê°€ indexë¥¼ ëª»ì°¾ëŠ”ê²ƒì„ ì˜ˆìƒ í•˜ê¸° ìœ„í•´ indexì— -1 í• ë‹¹.
-		for(int i = 0; i<stocks.size(); i++) { //nameë°°ì—´ì— ì…ë ¥ëœ í¬ê¸°ë§Œí¼ forë°˜ë³µë¬¸ ì‹¤í–‰í•˜ê²Œ loopì„¤ê³„
-			if(stocks.get(i).getStocksName().equals(name)) { //ì…ë ¥í•œ ì¢…ëª©ì´ ë‚´ê°€ ì €ì¥í•œ ì¢…ëª©ê°€ ê°™ìœ¼ë©´ indexê°’ í• ë‹¹
-				index = i; //indexê°’ í• ë‹¹
-				break; //ì¢…ë£Œ
+	public int findIndex(String name) { //findIndex method »ı¼º
+		int index = -1; //array°¡ index¸¦ ¸øÃ£´Â°ÍÀ» ¿¹»ó ÇÏ±â À§ÇØ index¿¡ -1 ÇÒ´ç.
+		for(int i = 0; i<stocks.size(); i++) { //name¹è¿­¿¡ ÀÔ·ÂµÈ Å©±â¸¸Å­ for¹İº¹¹® ½ÇÇàÇÏ°Ô loop¼³°è
+			if(stocks.get(i).getStocksName().equals(name)) { //ÀÔ·ÂÇÑ Á¾¸ñÀÌ ³»°¡ ÀúÀåÇÑ Á¾¸ñ°¡ °°À¸¸é index°ª ÇÒ´ç
+				index = i; //index°ª ÇÒ´ç
+				break; //Á¾·á
 			}
 		}
-		return index; //indexê°’ ë°˜í™˜
+		return index; //index°ª ¹İÈ¯
 	}
 	
-	public int removefromStocks(int index, String name) { //removefromStocks method ìƒì„±
-		if(index >= 0) { //indexê°’ì´ 0ì´ìƒ
-			stocks.remove(index); //ë°°ì—´ indexê°’ ì •ë³´ ì‚­ì œ
-			System.out.println("ì…ë ¥ëœ ì¢…ëª© " + name + "ì´(ê°€) ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤."); //ì‚¬ìš©ìê°€ ì…ë ¥í•œ ì¢…ëª© ì‚­ì œ ì•ˆë‚´ë¬¸ ì¶œë ¥
+	public int removefromStocks(int index, String name) { //removefromStocks method »ı¼º
+		if(index >= 0) { //index°ªÀÌ 0ÀÌ»ó
+			stocks.remove(index); //¹è¿­ index°ª Á¤º¸ »èÁ¦
+			System.out.println("ÀÔ·ÂµÈ Á¾¸ñ " + name + "ÀÌ(°¡) »èÁ¦µÇ¾ú½À´Ï´Ù."); //»ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ Á¾¸ñ »èÁ¦ ¾È³»¹® Ãâ·Â
 			return 1;
 		} 
-	else { //indexê°’ì´ ìŒìˆ˜ì¼ê²½ìš°
-			System.out.println("ì…ë ¥ëœ ì¢…ëª©ì€ ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤."); //ì‚¬ìš©ìì—ê²Œ ì…ë ¥í•œ ì •ë³´ ì—†ìŒ ì•ˆë‚´ë¬¸ ì¶œë ¥
+	else { //index°ªÀÌ À½¼öÀÏ°æ¿ì
+			System.out.println("ÀÔ·ÂµÈ Á¾¸ñÀº Á¤º¸°¡ ¾ø½À´Ï´Ù."); //»ç¿ëÀÚ¿¡°Ô ÀÔ·ÂÇÑ Á¤º¸ ¾øÀ½ ¾È³»¹® Ãâ·Â
 			return -1;
 		}
 	}
 	
 	
-	public void editStocks() { //ì£¼ì‹'ì¢…ëª© ì •ë³´' ìˆ˜ì •í•˜ëŠ” í•¨ìˆ˜ ìƒì„±
-		System.out.print("ì¢…ëª© ì´ë¦„: "); //ì‚¬ìš©ìì—ê²Œ ìˆ˜ì •í•  ì£¼ì‹ ì¢…ëª© ì…ë ¥ ì•ˆë‚´ë¬¸ ì¶œë ¥
-		String name = input.next(); //ì‚¬ìš©ìê°€ ì…ë ¥í•œ ê°’ì„ nameì— í• ë‹¹
-		for(int i = 0; i<stocks.size(); i++) { //nameë°°ì—´ì— ì…ë ¥ëœ í¬ê¸°ë§Œí¼ forë°˜ë³µë¬¸ ì‹¤í–‰í•˜ê²Œ loopì„¤ê³„
-			StockInput stock = stocks.get(i); //stocksì €ì¥ê³µê°„ì— ìˆëŠ” ì¸ë±ìŠ¤ ê°’ì„ stockì— í• ë‹¹
-			if(stock.getStocksName().equals(name)) { //ë§Œì•½ ì…ë ¥ê°’ê³¼ í˜„ì¬ ì €ì¥ë˜ì–´ìˆëŠ” ì£¼ì‹ì¢…ëª© ëª…ì´ ê°’ì„ ê²½ìš° ë¬¸ìì—´ì´ë¯€ë¡œ equals() methodë¥¼ í™œìš© 
-				int num = -1; // ì‚¬ìš©ìê°€ ë©”ë‰´ ì…ë ¥í•  ë³€ìˆ˜ ì„ ì–¸ê³¼ ì´ˆê¸°í™”
-				while (num != 5) { //edit ë§¤ë‰´ ì„¤ì •
-					showEditMenu(); //showEditMenu methodë¥¼ í†µí•´ ì‚¬ìš©ìì—ê²Œ ìˆ˜ì •ì„¹ì…˜ ë©”ë‰´ ë…¸ì¶œ
-					num = input.nextInt(); //ì‚¬ìš©ìì—ê²Œ ì…ë ¥ë°›ì€ ê°’ì„ numì— í• ë‹¹
+	public void editStocks() { //ÁÖ½Ä'Á¾¸ñ Á¤º¸' ¼öÁ¤ÇÏ´Â ÇÔ¼ö »ı¼º
+		System.out.print("Á¾¸ñ ÀÌ¸§: "); //»ç¿ëÀÚ¿¡°Ô ¼öÁ¤ÇÒ ÁÖ½Ä Á¾¸ñ ÀÔ·Â ¾È³»¹® Ãâ·Â
+		String name = input.next(); //»ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ °ªÀ» name¿¡ ÇÒ´ç
+		for(int i = 0; i<stocks.size(); i++) { //name¹è¿­¿¡ ÀÔ·ÂµÈ Å©±â¸¸Å­ for¹İº¹¹® ½ÇÇàÇÏ°Ô loop¼³°è
+			StockInput stock = stocks.get(i); //stocksÀúÀå°ø°£¿¡ ÀÖ´Â ÀÎµ¦½º °ªÀ» stock¿¡ ÇÒ´ç
+			if(stock.getStocksName().equals(name)) { //¸¸¾à ÀÔ·Â°ª°ú ÇöÀç ÀúÀåµÇ¾îÀÖ´Â ÁÖ½ÄÁ¾¸ñ ¸íÀÌ °ªÀ» °æ¿ì ¹®ÀÚ¿­ÀÌ¹Ç·Î equals() method¸¦ È°¿ë 
+				int num = -1; // »ç¿ëÀÚ°¡ ¸Ş´º ÀÔ·ÂÇÒ º¯¼ö ¼±¾ğ°ú ÃÊ±âÈ­
+				while (num != 5) { //edit ¸Å´º ¼³Á¤
+					showEditMenu(); //showEditMenu method¸¦ ÅëÇØ »ç¿ëÀÚ¿¡°Ô ¼öÁ¤¼½¼Ç ¸Ş´º ³ëÃâ
+					num = input.nextInt(); //»ç¿ëÀÚ¿¡°Ô ÀÔ·Â¹ŞÀº °ªÀ» num¿¡ ÇÒ´ç
 					
-					switch(num) { //switchë¬¸ì„ í™œìš©í•´ ì‚¬ìš©ì ì„ íƒ ìš©ì´
+					switch(num) { //switch¹®À» È°¿ëÇØ »ç¿ëÀÚ ¼±ÅÃ ¿ëÀÌ
 						case 1: 
-							stock.setStockName(input); //setStockName()ì„ í†µí•´ ì£¼ì‹ì´ë¦„ ìˆ˜ì •
-							break;//ì¢…ë£Œ
+							stock.setStockName(input); //setStockName()À» ÅëÇØ ÁÖ½ÄÀÌ¸§ ¼öÁ¤
+							break;//Á¾·á
 						case 2: 
-							stock.setStockPrice(input); //setStockPrice()ì„ í†µí•´ ì£¼ì‹ë§¤ìˆ˜ê°€ ìˆ˜ì •
-							break;//ì¢…ë£Œ
+							stock.setStockPrice(input); //setStockPrice()À» ÅëÇØ ÁÖ½Ä¸Å¼ö°¡ ¼öÁ¤
+							break;//Á¾·á
 						case 3: 
-							stock.setStockGoal(input); //setStockGoal()ì„ í†µí•´ ì£¼ì‹ëª©í‘œê°€ ìˆ˜ì •
-							break;//ì¢…ë£Œ
+							stock.setStockGoal(input); //setStockGoal()À» ÅëÇØ ÁÖ½Ä¸ñÇ¥°¡ ¼öÁ¤
+							break;//Á¾·á
 						case 4: 
-							stock.setStockMemo(input); //setStockMemo()ì„ í†µí•´ ì£¼ì‹ë©”ëª¨ ìˆ˜ì •
-							break;//ì¢…ë£Œ
+							stock.setStockMemo(input); //setStockMemo()À» ÅëÇØ ÁÖ½Ä¸Ş¸ğ ¼öÁ¤
+							break;//Á¾·á
 						default: 
-							continue; //loopë¬¸ íƒˆì¶œ
+							continue; //loop¹® Å»Ãâ
 						} //swtich
-			    }break; //while //ì¢…ë£Œ
+			    }break; //while //Á¾·á
 			}//if
 		}//for
 	}
 	
-	public void viewStocks() { //ê´€ì‹¬ì¢…ëª©ì— ì €ì¥ëœ ì¢…ëª©ë“¤ì„ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜ ìƒì„±
-		System.out.println("*****í˜„ì¬ ì‚¬ìš©ìê°€ ê´€ì‹¬ìˆì–´í•˜ëŠ” ì¢…ëª©ì…ë‹ˆë‹¤*****"); //ì‚¬ìš©ìì—ê²Œ ì €ì¥ëœ ì¢…ëª©ë“¤ì„ ì‹œê°ì ìœ¼ë¡œ ë³´ì—¬ì£¼ëŠ” ì•ˆë‚´ë¬¸ ì¶œë ¥
-		System.out.println("ì‚¬ìš©ìê»˜ì„œ ì €ì¥ëœ ì¢…ëª© ê°œìˆ˜ëŠ” " + stocks.size()+" ê°œì…ë‹ˆë‹¤.");
-	    for(int i=0; i<stocks.size(); i++) { //forë°˜ë³µë¬¸ì„ í†µí•´ nameë°°ì—´ í¬ê¸°ë§Œí¼ ë°˜ë³µë˜ê²Œ loopì„¤ê³„
-	        stocks.get(i).printInfo();//ì‚¬ìš©ìì—ê²Œ ì£¼ì‹ ì •ë³´ë¥¼ ì¶œë ¥
+	public void viewStocks() { //°ü½ÉÁ¾¸ñ¿¡ ÀúÀåµÈ Á¾¸ñµéÀ» º¸¿©ÁÖ´Â ÇÔ¼ö »ı¼º
+		System.out.println("*****ÇöÀç »ç¿ëÀÚ°¡ °ü½ÉÀÖ¾îÇÏ´Â Á¾¸ñÀÔ´Ï´Ù*****"); //»ç¿ëÀÚ¿¡°Ô ÀúÀåµÈ Á¾¸ñµéÀ» ½Ã°¢ÀûÀ¸·Î º¸¿©ÁÖ´Â ¾È³»¹® Ãâ·Â
+		System.out.println("»ç¿ëÀÚ²²¼­ ÀúÀåµÈ Á¾¸ñ °³¼ö´Â " + stocks.size()+" °³ÀÔ´Ï´Ù.");
+	    for(int i=0; i<stocks.size(); i++) { //for¹İº¹¹®À» ÅëÇØ name¹è¿­ Å©±â¸¸Å­ ¹İº¹µÇ°Ô loop¼³°è
+	        stocks.get(i).printInfo();//»ç¿ëÀÚ¿¡°Ô ÁÖ½Ä Á¤º¸¸¦ Ãâ·Â
 	    }
-	    if(stocks.size()==0) { //ë§Œì•½ ë°°ì—´ì•ˆì— ì•„ë¬´ê²ƒë„ ì—†ë‹¤ë©´?
-	        System.out.println("ëª©ë¡ì´ ì—†ìŠµë‹ˆë‹¤."); //ì‚¬ìš©ìì—ê²Œ ë°°ì—´ì•ˆì— ì €ì¥ëœ ì¢…ëª©ì´ ì—†ë‹¤ê³  ì•ˆë‚´ë¬¸ ì¶œë ¥
-	        System.out.println("ê´€ì‹¬ì¢…ëª©ì— ì¶”ê°€í•´ì£¼ì„¸ìš”."); //ì‚¬ìš©ìì—ê²Œ ê´€ì‹¬ì¢…ëª© ì¶”ê°€í•´ë‹¬ë¼ê³  ì•ˆë‚´ë¬¸ ì¶œë ¥
+	    if(stocks.size()==0) { //¸¸¾à ¹è¿­¾È¿¡ ¾Æ¹«°Íµµ ¾ø´Ù¸é?
+	        System.out.println("¸ñ·ÏÀÌ ¾ø½À´Ï´Ù."); //»ç¿ëÀÚ¿¡°Ô ¹è¿­¾È¿¡ ÀúÀåµÈ Á¾¸ñÀÌ ¾ø´Ù°í ¾È³»¹® Ãâ·Â
+	        System.out.println("°ü½ÉÁ¾¸ñ¿¡ Ãß°¡ÇØÁÖ¼¼¿ä."); //»ç¿ëÀÚ¿¡°Ô °ü½ÉÁ¾¸ñ Ãß°¡ÇØ´Ş¶ó°í ¾È³»¹® Ãâ·Â
 	    }
 	    System.out.println("************************************"); 
 
 	}
 	
 	
-	public void showEditMenu() { //showEditMenu method ìƒì„±
+	public void showEditMenu() { //showEditMenu method »ı¼º
 		System.out.println("### Stocks Info Edit Menu ###");
 		System.out.println("1. Edit StocksName");
 		System.out.println("2. Edit Price Stocks");

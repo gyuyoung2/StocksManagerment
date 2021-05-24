@@ -2,9 +2,9 @@ package stock;
 
 import java.util.Scanner;
 
-public abstract class WorldStock extends Stock { //WorldStockí´ë˜ìŠ¤ëŠ” Stockí´ë˜ìŠ¤ì— ìƒì†
+public abstract class WorldStock extends Stock { //WorldStockÅ¬·¡½º´Â StockÅ¬·¡½º¿¡ »ó¼Ó
 
-	public WorldStock(StockKind kind) { //OverseaStock ìƒì„±
+	public WorldStock(StockKind kind) { //OverseaStock »ı¼º
 		super(kind);
 	}
 	
@@ -14,38 +14,38 @@ public abstract class WorldStock extends Stock { //WorldStockí´ë˜ìŠ¤ëŠ” Stockí
 	@Override
 	public abstract void printInfo();
 
-	public void setStockMemowithYN(Scanner input) { //setStockMemowithYN method ìƒì„±
-		char answer = 'x'; //ì‚¬ìš©ìì—ê²Œ ì…ë ¥ë°›ì„ ê°’ì„ ì €ì¥í•  ë³€ìˆ˜ ì„ ì–¸ê³¼ ì´ˆê¸°í™”
-		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') //ì‚¬ìš©ìê°€ ì˜¬ë°”ë¥¸ ì…ë ¥í• ë•Œê¹Œì§€ ë°˜ë³µ
+	public void setStockMemowithYN(Scanner input) { //setStockMemowithYN method »ı¼º
+		char answer = 'x'; //»ç¿ëÀÚ¿¡°Ô ÀÔ·Â¹ŞÀ» °ªÀ» ÀúÀåÇÒ º¯¼ö ¼±¾ğ°ú ÃÊ±âÈ­
+		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') //»ç¿ëÀÚ°¡ ¿Ã¹Ù¸¥ ÀÔ·ÂÇÒ¶§±îÁö ¹İº¹
 		{
-			System.out.print("ë©”ëª¨ë¥¼ í•˜ì‹¤ê»€ê°€ìš”? (Y/N)"); //ì‚¬ìš©ìê°€ ì´ ì¢…ëª©ì˜ ë©”ëª¨ë¥¼ ë°›ê¸°ìœ„í•´ ì•ˆë‚´ë¬¸ ì¶œë ¥
-			answer = input.next().charAt(0); //ì‚¬ìš©ìì—ê²Œ ë¬¸ìì—´ ì…ë ¥ë°›ì€ ê°’ì„ answerì— ì €ì¥
-			if(answer =='y' || answer == 'Y' ) { //yì˜ ì†Œë¬¸ì ëŒ€ë¬¸ì ë‘˜ì¤‘ í•˜ë‚˜ë©´
-				setStockMemo(input); //setStockMemo methodë¥¼ í†µí•´ ì‚¬ìš©ìì—ê²Œ ë©”ëª¨ë¥¼ ì…ë ¥ë°›ìŒ				
-				break; //ì¢…ë£Œ
+			System.out.print("¸Ş¸ğ¸¦ ÇÏ½Ç²«°¡¿ä? (Y/N)"); //»ç¿ëÀÚ°¡ ÀÌ Á¾¸ñÀÇ ¸Ş¸ğ¸¦ ¹Ş±âÀ§ÇØ ¾È³»¹® Ãâ·Â
+			answer = input.next().charAt(0); //»ç¿ëÀÚ¿¡°Ô ¹®ÀÚ¿­ ÀÔ·Â¹ŞÀº °ªÀ» answer¿¡ ÀúÀå
+			if(answer =='y' || answer == 'Y' ) { //yÀÇ ¼Ò¹®ÀÚ ´ë¹®ÀÚ µÑÁß ÇÏ³ª¸é
+				setStockMemo(input); //setStockMemo method¸¦ ÅëÇØ »ç¿ëÀÚ¿¡°Ô ¸Ş¸ğ¸¦ ÀÔ·Â¹ŞÀ½				
+				break; //Á¾·á
 			}
-			else if(answer=='n' || answer == 'N') { //nì˜ ì†Œë¬¸ì ëŒ€ë¬¸ì ë‘˜ì¤‘ í•˜ë‚˜ë©´
-				this.setmemo(""); //ê³µë°± í• ë‹¹
-				break; //ì¢…ë£Œ
+			else if(answer=='n' || answer == 'N') { //nÀÇ ¼Ò¹®ÀÚ ´ë¹®ÀÚ µÑÁß ÇÏ³ª¸é
+				this.setmemo(""); //°ø¹é ÇÒ´ç
+				break; //Á¾·á
 			}
 			else {
 			}
 		}
 	}
 	
-	public void setStockDollarwithYN(Scanner input) { //setStockDollarwithYN method ìƒì„±
-		char answer = 'x'; //ì‚¬ìš©ìì—ê²Œ ì…ë ¥ë°›ì„ ê°’ì„ ì €ì¥í•  ë³€ìˆ˜ ì„ ì–¸ê³¼ ì´ˆê¸°í™”
-		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') //ì‚¬ìš©ìê°€ ì˜¬ë°”ë¥¸ ì…ë ¥í• ë•Œê¹Œì§€ ë°˜ë³µ
+	public void setStockDollarwithYN(Scanner input) { //setStockDollarwithYN method »ı¼º
+		char answer = 'x'; //»ç¿ëÀÚ¿¡°Ô ÀÔ·Â¹ŞÀ» °ªÀ» ÀúÀåÇÒ º¯¼ö ¼±¾ğ°ú ÃÊ±âÈ­
+		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') //»ç¿ëÀÚ°¡ ¿Ã¹Ù¸¥ ÀÔ·ÂÇÒ¶§±îÁö ¹İº¹
 		{
-			System.out.print("ë‹¬ëŸ¬ë¡œ ê³„ì‚°í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (Y/N)"); //ì‚¬ìš©ìê°€ ì´ ì¢…ëª©ì˜ í™˜ìœ¨ ê³„ì‚°í•˜ê¸° ìœ„í•´ ì•ˆë‚´ë¬¸ ì¶œë ¥
-			answer = input.next().charAt(0); //ì‚¬ìš©ìì—ê²Œ ë¬¸ìì—´ ì…ë ¥ë°›ì€ ê°’ì„ answerì— ì €ì¥
-			if(answer =='y' || answer == 'Y' ) { //yì˜ ì†Œë¬¸ì ëŒ€ë¬¸ì ë‘˜ì¤‘ í•˜ë‚˜ë©´
-				Dollar = setStockDollar(input); //setStockDollar methodë¥¼ í†µí•´ ì‚¬ìš©ìì—ê²Œ ë‹¬ëŸ¬ í™˜ì „ì„ í•´ì¤Œ
-				break; //ì¢…ë£Œ
+			System.out.print("´Ş·¯·Î °è»êÇÏ½Ã°Ú½À´Ï±î? (Y/N)"); //»ç¿ëÀÚ°¡ ÀÌ Á¾¸ñÀÇ È¯À² °è»êÇÏ±â À§ÇØ ¾È³»¹® Ãâ·Â
+			answer = input.next().charAt(0); //»ç¿ëÀÚ¿¡°Ô ¹®ÀÚ¿­ ÀÔ·Â¹ŞÀº °ªÀ» answer¿¡ ÀúÀå
+			if(answer =='y' || answer == 'Y' ) { //yÀÇ ¼Ò¹®ÀÚ ´ë¹®ÀÚ µÑÁß ÇÏ³ª¸é
+				Dollar = setStockDollar(input); //setStockDollar method¸¦ ÅëÇØ »ç¿ëÀÚ¿¡°Ô ´Ş·¯ È¯ÀüÀ» ÇØÁÜ
+				break; //Á¾·á
 			}
-			else if(answer=='n' || answer == 'N') { //nì˜ ì†Œë¬¸ì ëŒ€ë¬¸ì ë‘˜ì¤‘ í•˜ë‚˜ë©´
-				this.setDollar(0); //ê³µë°± í• ë‹¹
-				break; //ì¢…ë£Œ
+			else if(answer=='n' || answer == 'N') { //nÀÇ ¼Ò¹®ÀÚ ´ë¹®ÀÚ µÑÁß ÇÏ³ª¸é
+				this.setDollar(0); //°ø¹é ÇÒ´ç
+				break; //Á¾·á
 			}
 			else {
 			}

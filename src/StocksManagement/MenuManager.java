@@ -10,51 +10,51 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import log.EventLogger;
 public class MenuManager {
-	static EventLogger logger = new EventLogger("log.txt"); //logë¥¼ ê¸°ë¡í•˜ëŠ” ìƒì„±ì ìƒì„±
+	static EventLogger logger = new EventLogger("log.txt"); //log¸¦ ±â·ÏÇÏ´Â »ı¼ºÀÚ »ı¼º
 	
 	public static void main(String[] args) {
 
 		
-		Scanner input = new Scanner(System.in); //ì‚¬ìš©ìì—ê²Œ ì…ë ¥ë°›ê¸°ìœ„í•´ Scannerí´ë˜ìŠ¤ ìƒì„±.
-		StocksManager stocksManager = getObject("stocksmanager.ser"); //ì§ë ¬í™” ì²˜ë¦¬.(ê°ì²´ë¥¼ íŒŒì¼ì— ì“´ë‹¤)
-		if(stocksManager == null) { //stocksManagerê°€ ë¹„ì–´ìˆìœ¼ë©´
+		Scanner input = new Scanner(System.in); //»ç¿ëÀÚ¿¡°Ô ÀÔ·Â¹Ş±âÀ§ÇØ ScannerÅ¬·¡½º »ı¼º.
+		StocksManager stocksManager = getObject("stocksmanager.ser"); //Á÷·ÄÈ­ Ã³¸®.(°´Ã¼¸¦ ÆÄÀÏ¿¡ ¾´´Ù)
+		if(stocksManager == null) { //stocksManager°¡ ºñ¾îÀÖÀ¸¸é
 			stocksManager = new StocksManager(input);
-		} //ê°ê° ë§¤ë‰´ì˜ ê¸°ëŠ¥ methodë¥¼ í™œìš©í•˜ê¸° ìœ„í•´StocksManager í´ë˜ìŠ¤ ìƒì„±
+		} //°¢°¢ ¸Å´ºÀÇ ±â´É method¸¦ È°¿ëÇÏ±â À§ÇØStocksManager Å¬·¡½º »ı¼º
 		
-		selectMenu(input, stocksManager); //selectMenu methodë¥¼ í™œìš©í•˜ì—¬ ì‚¬ìš©ìì—ê²Œ ë©”ë‰´ë…¸ì¶œê³¼ ì„ íƒê¸°ëŠ¥ ì¶”ê°€
-		putObject(stocksManager, "stockmanager.ser"); //stockmanager.ser ê°ì²´ ì €ì¥
+		selectMenu(input, stocksManager); //selectMenu method¸¦ È°¿ëÇÏ¿© »ç¿ëÀÚ¿¡°Ô ¸Ş´º³ëÃâ°ú ¼±ÅÃ±â´É Ãß°¡
+		putObject(stocksManager, "stockmanager.ser"); //stockmanager.ser °´Ã¼ ÀúÀå
 		
 	}
 	
-	public static void selectMenu(Scanner input, StocksManager stocksManager) { //selectMenu method ìƒì„±
-		int num= -1;// ì‚¬ìš©ìê°€ ë©”ë‰´ ì…ë ¥í•  ë³€ìˆ˜ ì„ ì–¸ê³¼ ì´ˆê¸°í™”
-		while (num != 5) { //ë§¤ë‰´ ì„¤ì •
+	public static void selectMenu(Scanner input, StocksManager stocksManager) { //selectMenu method »ı¼º
+		int num= -1;// »ç¿ëÀÚ°¡ ¸Ş´º ÀÔ·ÂÇÒ º¯¼ö ¼±¾ğ°ú ÃÊ±âÈ­
+		while (num != 5) { //¸Å´º ¼³Á¤
 			try {
-			showMenu();//showMenu methodë¥¼ í†µí•´ ë©”ë‰´ ì¶œë ¥
+			showMenu();//showMenu method¸¦ ÅëÇØ ¸Ş´º Ãâ·Â
 			
-			num = input.nextInt(); //ì‚¬ìš©ìê°€ ì…ë ¥í•œ ê°’ì„ ì •ìˆ˜í˜•ìœ¼ë¡œ ë³€ìˆ˜ì— ì €ì¥
-			switch(num) { //switchêµ¬ë¬¸ì„ í†µí•´ ì‚¬ìš©ìê°€ ì‚¬ìš©í•˜ê³ ì í•˜ëŠ” ë©”ë‰´ë¡œ ì´ë™
+			num = input.nextInt(); //»ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ °ªÀ» Á¤¼öÇüÀ¸·Î º¯¼ö¿¡ ÀúÀå
+			switch(num) { //switch±¸¹®À» ÅëÇØ »ç¿ëÀÚ°¡ »ç¿ëÇÏ°íÀÚ ÇÏ´Â ¸Ş´º·Î ÀÌµ¿
 			case 1:
-				stocksManager.addStocks();//ì£¼ì‹ ì¢…ëª© ë“±ë¡í•˜ëŠ” í•¨ìˆ˜ ì‹¤í–‰
-				logger.log("add a Stock"); //ë¡œê·¸ ì‹¤í–‰
+				stocksManager.addStocks();//ÁÖ½Ä Á¾¸ñ µî·ÏÇÏ´Â ÇÔ¼ö ½ÇÇà
+				logger.log("add a Stock"); //·Î±× ½ÇÇà
 				break;
 			case 2:
-				stocksManager.deleteStocks(); //ì£¼ì‹ ì¢…ëª© ì‚­ì œí•˜ëŠ” í•¨ìˆ˜ ì‹¤í–‰
-				logger.log("delete a Stock"); //ë¡œê·¸ ì‹¤í–‰
+				stocksManager.deleteStocks(); //ÁÖ½Ä Á¾¸ñ »èÁ¦ÇÏ´Â ÇÔ¼ö ½ÇÇà
+				logger.log("delete a Stock"); //·Î±× ½ÇÇà
 				break;
 			case 3:
-				stocksManager.editStocks(); //ê´€ì‹¬ì¢…ëª©ì— ë‹´ê¸´ ì¢…ëª©ë“¤ì„ ìˆ˜ì •í•˜ëŠ” í•¨ìˆ˜ ì‹¤í–‰
-				logger.log("edit a Stock"); //ë¡œê·¸ ì‹¤í–‰
+				stocksManager.editStocks(); //°ü½ÉÁ¾¸ñ¿¡ ´ã±ä Á¾¸ñµéÀ» ¼öÁ¤ÇÏ´Â ÇÔ¼ö ½ÇÇà
+				logger.log("edit a Stock"); //·Î±× ½ÇÇà
 				break;
 			case 4:
-				stocksManager.viewStocks(); //ê´€ì‹¬ì¢…ëª©ì„ ë³¼ìˆ˜ìˆëŠ” í•¨ìˆ˜ ì‹¤í–‰
-				logger.log("edit a list of Stock"); //ë¡œê·¸ ì‹¤í–‰
+				stocksManager.viewStocks(); //°ü½ÉÁ¾¸ñÀ» º¼¼öÀÖ´Â ÇÔ¼ö ½ÇÇà
+				logger.log("edit a list of Stock"); //·Î±× ½ÇÇà
 				break;
 			default:
-				continue;//í”„ë¡œê·¸ë¨ ì¢…ë£Œ
+				continue;//ÇÁ·Î±×·¥ Á¾·á
 				}
 			}
-			catch(InputMismatchException e) { //try/catchë¬¸ì„ ì‚¬ìš©í•´ ì˜ˆì™¸ì²˜ë¦¬
+			catch(InputMismatchException e) { //try/catch¹®À» »ç¿ëÇØ ¿¹¿ÜÃ³¸®
 				System.out.println("Please put an integer between 1 and 4!");
 				if(input.hasNext()) {
 					input.next();
@@ -64,7 +64,7 @@ public class MenuManager {
 		}
 	}
 	
-	public static void showMenu() { //addMenu method ìƒì„±
+	public static void showMenu() { //addMenu method »ı¼º
 		System.out.println("### Stocks Management System Menu ###");
 		System.out.println("1. Add Stocks");
 		System.out.println("2. Delete Stocks");
@@ -74,36 +74,36 @@ public class MenuManager {
 		System.out.print("Select one number between 1 - 5:");
 	}
 	
-	public static StocksManager getObject(String fileName) { //getObject method ìƒì„±
-		StocksManager stocksManager = null; //stocksManager ì´ˆê¸°í™”
+	public static StocksManager getObject(String fileName) { //getObject method »ı¼º
+		StocksManager stocksManager = null; //stocksManager ÃÊ±âÈ­
 		
 		
-		try { //try/catchë¬¸ ì‹¤í–‰
-			FileInputStream file = new FileInputStream(fileName); //FileInputStream í´ë˜ìŠ¤ ìƒì„±ì ìƒì„±
-			ObjectInputStream in = new ObjectInputStream(file); //ObjectInputStream í´ë˜ìŠ¤ ìƒì„±ì ìƒì„±
+		try { //try/catch¹® ½ÇÇà
+			FileInputStream file = new FileInputStream(fileName); //FileInputStream Å¬·¡½º »ı¼ºÀÚ »ı¼º
+			ObjectInputStream in = new ObjectInputStream(file); //ObjectInputStream Å¬·¡½º »ı¼ºÀÚ »ı¼º
 			
-			stocksManager =(StocksManager) in.readObject(); //readObject methodë¥¼ ì´ìš©í•´ íŒŒì¼ì„ ì½ì–´ì˜´
+			stocksManager =(StocksManager) in.readObject(); //readObject method¸¦ ÀÌ¿ëÇØ ÆÄÀÏÀ» ÀĞ¾î¿È
 			
 			in.close(); //close
 			file.close(); //close
 			
 		} catch (FileNotFoundException e) {
-			return stocksManager; //stocksMangerë¥¼ ë°˜í™˜í•¨
+			return stocksManager; //stocksManger¸¦ ¹İÈ¯ÇÔ
 		} catch (IOException e) {			
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return stocksManager; //stocksMangerë¥¼ ë°˜í™˜í•¨
+		return stocksManager; //stocksManger¸¦ ¹İÈ¯ÇÔ
 		
 	}
 	
-	public static StocksManager putObject(StocksManager stocksManager ,String fileName) { //putObject method ìƒì„±
+	public static StocksManager putObject(StocksManager stocksManager ,String fileName) { //putObject method »ı¼º
 		try {
-			FileOutputStream file = new FileOutputStream(fileName); //FileOutputStream í´ë˜ìŠ¤ ìƒì„±ì ìƒì„±
-			ObjectOutputStream out = new ObjectOutputStream(file); //ObjectOutputStream í´ë˜ìŠ¤ ìƒì„±ì ìƒì„±
+			FileOutputStream file = new FileOutputStream(fileName); //FileOutputStream Å¬·¡½º »ı¼ºÀÚ »ı¼º
+			ObjectOutputStream out = new ObjectOutputStream(file); //ObjectOutputStream Å¬·¡½º »ı¼ºÀÚ »ı¼º
 			
-			out.writeObject(stocksManager); //writeObject methodë¥¼ í†µí•´ íŒŒì¼ì„ ê°ì²´ì— ì „ë‹¬.
+			out.writeObject(stocksManager); //writeObject method¸¦ ÅëÇØ ÆÄÀÏÀ» °´Ã¼¿¡ Àü´Ş.
 			
 			out.close(); //close
 			file.close(); //close
@@ -113,7 +113,7 @@ public class MenuManager {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return stocksManager; //stocksManagerë¥¼ ë°˜í™˜
+		return stocksManager; //stocksManager¸¦ ¹İÈ¯
 		
 	}
 }

@@ -2,39 +2,39 @@ package stock;
 
 import java.util.Scanner;
 
-public class OverseaStock extends WorldStock { //OverseaStock í´ë˜ìŠ¤ê°€ WorldStockí´ë˜ìŠ¤ì— ìƒì†
+public class OverseaStock extends WorldStock { //OverseaStock Å¬·¡½º°¡ WorldStockÅ¬·¡½º¿¡ »ó¼Ó
 	
 	
-	public OverseaStock(StockKind kind) { //OverseaStock ìƒì„±
+	public OverseaStock(StockKind kind) { //OverseaStock »ı¼º
 		super(kind);
 	}
 
 	public void getUserInput(Scanner input) {
-		setStockName(input); //setStockName methodë¥¼ í†µí•´ ì‚¬ìš©ìì—ê²Œ ì£¼ì‹ ì¢…ëª©ëª…ì„ ì…ë ¥ë°›ìŒ
+		setStockName(input); //setStockName method¸¦ ÅëÇØ »ç¿ëÀÚ¿¡°Ô ÁÖ½Ä Á¾¸ñ¸íÀ» ÀÔ·Â¹ŞÀ½
 		
-		setStockPrice(input); //setStockPrice methodë¥¼ í†µí•´ ì‚¬ìš©ìì—ê²Œ ì£¼ì‹ ë§¤ìˆ˜ê°€ë¥¼ ì…ë ¥ë°›ìŒ
+		setStockPrice(input); //setStockPrice method¸¦ ÅëÇØ »ç¿ëÀÚ¿¡°Ô ÁÖ½Ä ¸Å¼ö°¡¸¦ ÀÔ·Â¹ŞÀ½
 		
-		setStockGoal(input); //setStockGoal methodë¥¼ í†µí•´ ì‚¬ìš©ìì—ê²Œ ì£¼ì‹ ëª©í‘œê°€ë¥¼ ì…ë ¥ë°›ìŒ
+		setStockGoal(input); //setStockGoal method¸¦ ÅëÇØ »ç¿ëÀÚ¿¡°Ô ÁÖ½Ä ¸ñÇ¥°¡¸¦ ÀÔ·Â¹ŞÀ½
 		
-		setStockMemowithYN(input); //setStockMemowithYN methodë¥¼ í†µí•´ ì‚¬ìš©ìì—ê²Œ ë©”ëª¨ë¥¼ ì—¬ë¶€ì™€ ë©”ëª¨ë¥¼ ì…ë ¥ë°›ìŒ
+		setStockMemowithYN(input); //setStockMemowithYN method¸¦ ÅëÇØ »ç¿ëÀÚ¿¡°Ô ¸Ş¸ğ¸¦ ¿©ºÎ¿Í ¸Ş¸ğ¸¦ ÀÔ·Â¹ŞÀ½
 		
-		setStockDollarwithYN(input); //setStockDollarwithYN methodë¥¼ í†µí•´ ì‚¬ìš©ìì—ê²Œ í™˜ìœ¨ ì—¬ë¶€ì™€ í™˜ìœ¨ì •ë³´ë¥¼ ì…ë ¥ë°›ìŒ
+		setStockDollarwithYN(input); //setStockDollarwithYN method¸¦ ÅëÇØ »ç¿ëÀÚ¿¡°Ô È¯À² ¿©ºÎ¿Í È¯À²Á¤º¸¸¦ ÀÔ·Â¹ŞÀ½
 	}
 	
 	
-	public void printInfo() { //ì£¼ì‹ì •ë³´ë¥¼ ì¶œë ¥í•´ì£¼ëŠ” printInfo() method.
-		String skind = getKindString(); //getKindString methodë¥¼ í†µí•´ ì£¼ì‹ì¢…ë¥˜ë¥¼ ê°€ì ¸ì˜´.
-		System.out.println("ì£¼ì‹ ì¢…ë¥˜: "+ skind +"ì¢…ëª©ëª…: "+ StocksName + " ë§¤ìˆ˜ê°€: "+buyStock+"ì› ëª©í‘œê°€: "+goalPrice+"ì› ë©”ëª¨: "+ memo + "/ë§¤ìˆ˜($): " + Dollar + "ë‹¬ëŸ¬");//ì£¼ì‹ì •ë³´ ì¶œë ¥
+	public void printInfo() { //ÁÖ½ÄÁ¤º¸¸¦ Ãâ·ÂÇØÁÖ´Â printInfo() method.
+		String skind = getKindString(); //getKindString method¸¦ ÅëÇØ ÁÖ½ÄÁ¾·ù¸¦ °¡Á®¿È.
+		System.out.println("ÁÖ½Ä Á¾·ù: "+ skind +"Á¾¸ñ¸í: "+ StocksName + " ¸Å¼ö°¡: "+buyStock+"¿ø ¸ñÇ¥°¡: "+goalPrice+"¿ø ¸Ş¸ğ: "+ memo + "/¸Å¼ö($): " + Dollar + "´Ş·¯");//ÁÖ½ÄÁ¤º¸ Ãâ·Â
 	}
 	
-	public String getKindString() { //ì£¼ì‹ì¢…ë¥˜ì˜ ë¬¸ìì—´ì„ ê°€ì ¸ì˜¤ëŠ” getKindString() method
+	public String getKindString() { //ÁÖ½ÄÁ¾·ùÀÇ ¹®ÀÚ¿­À» °¡Á®¿À´Â getKindString() method
 		String skind = "none";
-		switch(this.kind) { //ì£¼ì‹ ì¢…ë¥˜ íŒë³„
+		switch(this.kind) { //ÁÖ½Ä Á¾·ù ÆÇº°
 		case Korea:
-			skind = "êµ­ë‚´ì£¼ì‹";
+			skind = "±¹³»ÁÖ½Ä";
 			break;
 		case Oversea:
-			skind = "í•´ì™¸ì£¼ì‹";
+			skind = "ÇØ¿ÜÁÖ½Ä";
 			break;
 		default:
 		}

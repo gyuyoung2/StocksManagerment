@@ -6,31 +6,31 @@ import exception.SellException;
 
 public interface StockInput {
 	
-	public String getStocksName(); //getStockName abstract method ì„ ì–¸..
+	public String getStocksName(); //getStockName abstract method ¼±¾ð..
 	
-	public void setStocksName(String stocksName); //setStocksName abstract method ì„ ì–¸.
+	public void setStocksName(String stocksName); //setStocksName abstract method ¼±¾ð.
 	
-	public void setBuyStock(int buyStock) throws SellException ; //setBuyStock abstract method ì„ ì–¸.
+	public void setBuyStock(int buyStock) throws SellException ; //setBuyStock abstract method ¼±¾ð.
 	
 	
-	public void setGoalPrice(int goalPrice); //setGoalPrice abstract method ì„ ì–¸.
+	public void setGoalPrice(int goalPrice); //setGoalPrice abstract method ¼±¾ð.
 	
-	public void setmemo(String memo); //setmemo abstract method ì„ ì–¸.
+	public void setmemo(String memo); //setmemo abstract method ¼±¾ð.
 	
-	public void setDollar(int Dollar); //setDollar abstract method ì„ ì–¸.
+	public void setDollar(int Dollar); //setDollar abstract method ¼±¾ð.
 	
-	public void getUserInput(Scanner input); //getUserInput abstract method ì„ ì–¸.
+	public void getUserInput(Scanner input); //getUserInput abstract method ¼±¾ð.
 	
-	public void printInfo(); //printInfo abstract method ì„ ì–¸.
+	public void printInfo(); //printInfo abstract method ¼±¾ð.
 	
-	public void setStockName(Scanner input); //setStockName method ì„ ì–¸.
+	public void setStockName(Scanner input); //setStockName method ¼±¾ð.
 	
-	public void setStockPrice(Scanner input); //setStockPrice method ì„ ì–¸.
+	public void setStockPrice(Scanner input); //setStockPrice method ¼±¾ð.
 	
-	public void setStockGoal(Scanner input); //setStockGoal method ì„ ì–¸.
+	public void setStockGoal(Scanner input); //setStockGoal method ¼±¾ð.
 	
-	public void setStockMemo(Scanner input); //setStockMemo method ì„ ì–¸.
+	public void setStockMemo(Scanner input); //setStockMemo method ¼±¾ð.
 	
-	public int setStockDollar(Scanner input); //setStockDollar method ì„ ì–¸.
+	public int setStockDollar(Scanner input); //setStockDollar method ¼±¾ð.
 	
 }
