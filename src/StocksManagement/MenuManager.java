@@ -16,7 +16,7 @@ public class MenuManager {
 
 		
 		Scanner input = new Scanner(System.in); //사용자에게 입력받기위해 Scanner클래스 생성
-		StocksManager stocksManager = getObject("stocksmanager.ser"); //직렬화 처리.(객체를 파일에 쓴다)
+		StocksManager stocksManager = getObject("stockmanager.ser"); //직렬화 처리.(객체를 파일에 쓴다)
 		if(stocksManager == null) { //stocksManager가 비어있으면
 			stocksManager = new StocksManager(input);
 		} //각각 매뉴의 기능 method를 활용하기 위해StocksManager 클래스 생성
@@ -48,7 +48,7 @@ public class MenuManager {
 				break;
 			case 4:
 				stocksManager.viewStocks(); //관심종목을 볼수있는 함수 실행
-				logger.log("edit a list of Stock"); //로그 실행
+				logger.log("view a Stocks"); //로그 실행
 				break;
 			default:
 				continue;//프로그램 종료
@@ -82,7 +82,7 @@ public class MenuManager {
 			FileInputStream file = new FileInputStream(fileName); //FileInputStream 클래스 생성자 생성
 			ObjectInputStream in = new ObjectInputStream(file); //ObjectInputStream 클래스 생성자 생성
 			
-			stocksManager =(StocksManager) in.readObject(); //readObject method를 이용해 파일을 읽어옴
+			stocksManager = (StocksManager) in.readObject(); //readObject method를 이용해 파일을 읽어옴
 			
 			in.close(); //close
 			file.close(); //close

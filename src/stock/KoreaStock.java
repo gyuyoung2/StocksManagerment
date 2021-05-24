@@ -17,7 +17,7 @@ public class KoreaStock extends WorldStock { //KoreaStock클래스가 WorldStock에 �
 	
 	public void printInfo() { //주식정보를 출력해주는 printInfo() method
 		String skind = getKindString(); //getKindString method에서 반환받은 skind의 값을 skind변수에 저장
-		System.out.println("주식 종류: "+ skind +"종목명: "+ StocksName + " 매수가: "+buyStock+"원 목표가: "+goalPrice+"원 메모: "+memo);//주식정보 출력
+		System.out.println("주식 종류: "+ skind +" 종목명: "+ StocksName + " 매수가: "+buyStock+"원 목표가: "+goalPrice+"원 메모: "+memo);//주식정보 출력
 	}
 	
 	public String getKindString() { //주식종류의 문자열을 가져오는 getKindString() method
