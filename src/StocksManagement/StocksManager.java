@@ -24,6 +24,7 @@ public class StocksManager implements Serializable { //Serializable 구현
 	
 	
 	public void addStocks(){ //주식'종목 정보'추가하는 함수 생성
+		Scanner input = new Scanner(System.in);
 		int kind = 0; //사용자가 메뉴 입력할 변수 선언과 초기화
 		StockInput stockInput; //Stock 클래스 생성자 생성
 		while(kind != 1 || kind != 2) { //사용자가 1,2 이외에 숫자를 입력할때까지 반복
@@ -50,8 +51,8 @@ public class StocksManager implements Serializable { //Serializable 구현
 		}
 			catch(InputMismatchException e) { //try/catch문을 통해 예외처리
 				System.out.println("Please put an integer between 1 and 2f!"); //오류 안내문 출력
-				if(input.hasNext()) { 
-					input.next();
+				if(this.input.hasNext()) { 
+					this.input.next();
 				}
 				kind = -1;
 			}
@@ -59,6 +60,7 @@ public class StocksManager implements Serializable { //Serializable 구현
 	}
 	
 	public void deleteStocks(){ //주식'종목 정보'삭제하는 함수 생성
+		Scanner input = new Scanner(System.in);
 		System.out.println("어떤 종목을 삭제하시겠습니까?"); // 사용자에게 삭제 할 종목 입력 안내문 출력
 		String name = input.next(); //삭제할 종목명 입력값을 name에 할당
 		int index = findIndex(name); //findIndex method에서 반환한 index값을 index변수에 저장
@@ -91,6 +93,7 @@ public class StocksManager implements Serializable { //Serializable 구현
 	
 	
 	public void editStocks() { //주식'종목 정보' 수정하는 함수 생성
+		Scanner input = new Scanner(System.in);
 		System.out.print("종목 이름: "); //사용자에게 수정할 주식 종목 입력 안내문 출력
 		String name = input.next(); //사용자가 입력한 값을 name에 할당
 		for(int i = 0; i<stocks.size(); i++) { //name배열에 입력된 크기만큼 for반복문 실행하게 loop설계
