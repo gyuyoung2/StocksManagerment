@@ -18,7 +18,7 @@ public class EventLogger {
 		try {
 			logmanager = LogManager.getLogManager(); 
 			logger = logmanager.getLogger(Logger.GLOBAL_LOGGER_NAME); 
-			filehandler = new FileHandler(fileName); //filehandler Å¬·¡½º »ı¼ºÀÚ »ı¼º.
+			filehandler = new FileHandler(fileName); //filehandler ìƒì„±ì ìƒì„±.
 			filehandler.setFormatter(new SimpleFormatter());
 			logger.addHandler(filehandler);
 		} catch (IOException e) {

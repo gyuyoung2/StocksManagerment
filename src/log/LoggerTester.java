@@ -3,7 +3,7 @@ package log;
 public class LoggerTester {
 
 	public static void main(String[] args) {
-		EventLogger logger = new EventLogger("log.txt"); //EventLogger »ı¼ºÀÚ »ı¼º.
+		EventLogger logger = new EventLogger("log.txt"); //EventLogger ìƒì„±ì ìƒì„±
 		logger.log("test"); //log test.
 
 	}
