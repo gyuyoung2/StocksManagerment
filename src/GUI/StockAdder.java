@@ -15,7 +15,7 @@ public class StockAdder extends JFrame { //JFrame 클래스 상속
 		JLabel labelName = new JLabel("Company Name: ", JLabel.TRAILING); //오른쪽으로 배치
 		JTextField fieldName = new JTextField(10); //JTextField 객체 생성
 		labelName.setLabelFor(fieldName); //labelName에 field값 추가
-		panel.add(labelName); //panel에 label 추가.
+		panel.add(labelName); //panel에 label 추가
 		panel.add(fieldName);
 		
 		JLabel labelPrice = new JLabel("Buy Price: ", JLabel.TRAILING); //오른쪽으로 배치

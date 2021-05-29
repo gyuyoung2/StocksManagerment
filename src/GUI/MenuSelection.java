@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MenuSelection extends JFrame { //JFrame 클래스 상속.
+public class MenuSelection extends JFrame { //JFrame 클래스 상속
 	
 	public MenuSelection() { //MenuSelction 생성사 생성
 		this.setSize(500,500); //GUI크기 설정
