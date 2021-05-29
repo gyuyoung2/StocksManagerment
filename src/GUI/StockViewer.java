@@ -5,7 +5,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class StockViewer extends JFrame { //JFrame클래스에 상속
+public class StockViewer extends JFrame { //JFrame클래스에 상속.
 
 	public StockViewer() { //StockViewer 생성자 생성
 		DefaultTableModel model = new DefaultTableModel(); //DefaultTableModel 객체 생성
