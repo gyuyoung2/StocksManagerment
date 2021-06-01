@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import stock.KoreaStock;
 import stock.OverseaStock;
+import stock.Stock;
 import stock.StockInput;
 import stock.StockKind;	
 
@@ -150,5 +151,12 @@ public class StocksManager implements Serializable { //Serializable ±¸Çö
 		System.out.print("Select one number between 1 - 5:");
 	}
 	
+	public int size() {
+		return stocks.size();
+	}
+	
+	public StockInput get(int index) {
+		return (Stock) stocks.get(index);
+	}
 	
 }

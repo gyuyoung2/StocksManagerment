@@ -12,6 +12,14 @@ public interface StockInput {
 	
 	public void setBuyStock(int buyStock) throws SellException ; //setBuyStock abstract method 識情.
 	
+	public int getBuyStock(); //getBuyStocks method 識情.
+	
+	public int getGoalPrice(); //getGoalPrice method 識情.
+	
+	public String getMemo(); //getMemo method 識情.
+	
+	public int getDollar(); //getDollar method 識情.
+	
 	
 	public void setGoalPrice(int goalPrice); //setGoalPrice abstract method 識情.
 	
@@ -32,5 +40,6 @@ public interface StockInput {
 	public void setStockMemo(Scanner input); //setStockMemo method 識情.
 	
 	public int setStockDollar(Scanner input); //setStockDollar method 識情.
+	
 	
 }

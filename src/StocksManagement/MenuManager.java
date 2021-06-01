@@ -8,6 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import GUI.WindowFrame;
 import log.EventLogger;
 public class MenuManager {
 	static EventLogger logger = new EventLogger("log.txt"); //log를 기록하는 생성자 생성
@@ -21,6 +23,8 @@ public class MenuManager {
 			stocksManager = new StocksManager(input);
 		} //각각 매뉴의 기능 method를 활용하기 위해StocksManager 클래스 생성
 		
+		
+		WindowFrame frame = new WindowFrame(stocksManager); //WindowFrame 객체 생성
 		selectMenu(input, stocksManager); //selectMenu method를 활용하여 사용자에게 메뉴노출과 선택기능 추가
 		putObject(stocksManager, "stockmanager.ser"); //stockmanager.ser 객체 저장
 		

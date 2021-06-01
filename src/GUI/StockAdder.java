@@ -7,8 +7,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class StockAdder extends JFrame { //JFrame 클래스 상속
-	public StockAdder() { //StockAdder 생성자 생성
+public class StockAdder extends JPanel { //JFrame 클래스 상속
+	
+	WindowFrame frame; //frame 선언
+	
+	public StockAdder(WindowFrame frame) { //StockAdder 생성자 생성
+		this.frame = frame; //인스턴스로 받은 값을 해당 클래스 변수에 저장
 		JPanel panel = new JPanel(); //JPanel 객체 생성
 		panel.setLayout(new SpringLayout()); //setLayout method
 		
@@ -41,9 +45,8 @@ public class StockAdder extends JFrame { //JFrame 클래스 상속
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6); //makeCompactGrid method를 통해 panel의 각각 위치 설정
 		
-		this.setSize(500,500); //GUI창의 크기 설정
-		this.setContentPane(panel); //frame에 ContentPane을 panel로 변경
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //창을 닫으면 프로그램 종료
+	
+		this.add(panel); //frame에 ContentPane을 panel로 변경
 		this.setVisible(true); //창이 보이도록 함
 	}
 }
