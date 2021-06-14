@@ -41,10 +41,10 @@ public class StockAdderListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		StockInput stock = new KoreaStock(StockKind.Korea);
+		StockInput stock = new KoreaStock(StockKind.Korea); //持失切 持失
 		
-		try {
-			stock.setStocksName(fieldName.getText());
+		try { //try catch庚 持失
+			stock.setStocksName(fieldName.getText()); //setStockNamed生稽  
 			stock.setBuyStock(Integer.parseInt(fieldPrice.getText()));
 			stock.setGoalPrice(Integer.parseInt(fieldGoal.getText()));
 			stock.setmemo(fieldMemo.getText());

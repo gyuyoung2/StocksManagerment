@@ -18,11 +18,11 @@ public class StockViewer extends JPanel { //JFrame클래스에 상속.
 	StocksManager stocksManager; //stocksManager 선언
 
 	
-	public StocksManager getStocksManager() {
+	public StocksManager getStocksManager() { 
 		return stocksManager;
 	}
 
-	public void setStocksManager(StocksManager stocksManager) {
+	public void setStocksManager(StocksManager stocksManager) { 
 		this.stocksManager = stocksManager;
 		this.removeAll();
 		

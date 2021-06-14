@@ -45,11 +45,11 @@ public class StockAdder extends JPanel { //JFrame 클래스 상속
 		JTextField fieldMemo = new JTextField(10); //JTextField 객체 생성
 		labelMemo.setLabelFor(fieldMemo); //labelMemo에 field값 추가
 		
-		JButton saveButton = new JButton("Save");
-		saveButton.addActionListener(new StockAdderListener(fieldName,fieldPrice,fieldGoal,fieldMemo,stocksManager));
+		JButton saveButton = new JButton("Save"); //저장 버튼 생성
+		saveButton.addActionListener(new StockAdderListener(fieldName,fieldPrice,fieldGoal,fieldMemo,stocksManager)); //save listener
 		
-		JButton cancelButton = new JButton("Cancel");
-		cancelButton.addActionListener(new StockAdderCancelListener(frame));
+		JButton cancelButton = new JButton("Cancel"); //취소 버튼 생성
+		cancelButton.addActionListener(new StockAdderCancelListener(frame)); //cancel listener
 		
 		panel.add(labelMemo); //panel에 label 추가
 		panel.add(fieldMemo); //panel에 field 추가
