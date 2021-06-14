@@ -7,12 +7,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import Listener.StockAdderCancelListener;
+import Listener.StockAdderListener;
+import StocksManagement.StocksManager;
+
 public class StockAdder extends JPanel { //JFrame 클래스 상속
 	
 	WindowFrame frame; //frame 선언
 	
-	public StockAdder(WindowFrame frame) { //StockAdder 생성자 생성
+	StocksManager stocksManager;
+	
+	public StockAdder(WindowFrame frame, StocksManager stocksManager) { //StockAdder 생성자 생성
 		this.frame = frame; //인스턴스로 받은 값을 해당 클래스 변수에 저장
+		this.stocksManager = stocksManager; //
 		JPanel panel = new JPanel(); //JPanel 객체 생성
 		panel.setLayout(new SpringLayout()); //setLayout method
 		
@@ -37,11 +44,18 @@ public class StockAdder extends JPanel { //JFrame 클래스 상속
 		JLabel labelMemo = new JLabel("Memo: ", JLabel.TRAILING); //오른쪽으로 배치
 		JTextField fieldMemo = new JTextField(10); //JTextField 객체 생성
 		labelMemo.setLabelFor(fieldMemo); //labelMemo에 field값 추가
+		
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener(new StockAdderListener(fieldName,fieldPrice,fieldGoal,fieldMemo,stocksManager));
+		
+		JButton cancelButton = new JButton("Cancel");
+		cancelButton.addActionListener(new StockAdderCancelListener(frame));
+		
 		panel.add(labelMemo); //panel에 label 추가
 		panel.add(fieldMemo); //panel에 field 추가
 		
-		panel.add(new JButton("Save")); //저장 버튼 panel에 추가
-		panel.add(new JButton("Cancel")); //취소 버튼 panel에 추가
+		panel.add(saveButton); //저장 버튼 panel에 추가
+		panel.add(cancelButton); //취소 버튼 panel에 추가
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6); //makeCompactGrid method를 통해 panel의 각각 위치 설정
 		

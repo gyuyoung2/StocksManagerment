@@ -23,6 +23,15 @@ public class StocksManager implements Serializable { //Serializable 구현
 		this.input = input; //사용자가 입력하는 값 저장을 도와주는 input 생성
 	}
 	
+	public void addStocks(String Name, String Price, String Goal, String Memo) {
+		StockInput stockInput = new KoreaStock(StockKind.Korea); // 생성자 생성
+		stockInput.getUserInput(input); //Stock 클래스의 getUserInput() method 실행
+		stocks.add(stockInput);
+	}
+	
+	public void addStocks(StockInput stockInput) {
+		stocks.add(stockInput);
+	}
 	
 	public void addStocks(){ //주식'종목 정보'추가하는 함수 생성
 		Scanner input = new Scanner(System.in);

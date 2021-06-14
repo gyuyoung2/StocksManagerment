@@ -8,18 +8,18 @@ import javax.swing.JButton;
 import GUI.StockAdder;
 import GUI.WindowFrame;
 
-public class ButtonAddListener implements ActionListener {
+public class StockAdderCancelListener implements ActionListener {
 	
 	WindowFrame frame;
 
-	public ButtonAddListener(WindowFrame frame) {
+	public StockAdderCancelListener(WindowFrame frame) {
 		this.frame = frame;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		frame.getContentPane().removeAll();
-		frame.getContentPane().add(frame.getStockadder());
+		frame.getContentPane().add(frame.getMenuselction());
 		frame.revalidate();
 		frame.repaint();
 	}

@@ -16,7 +16,7 @@ public class WindowFrame extends JFrame { //JFrame클래스 상속
 		
 		this.stocksManager = stocksManager; //인스턴스로 받은 값을 해당클래스 변수에 저장
 		menuselction = new MenuSelection(this); //MenuSelction 객체 생성.
-		stockadder = new StockAdder(this); //StockAdder 객체 생성
+		stockadder = new StockAdder(this, this.stocksManager); //StockAdder 객체 생성
 		stockviewer = new StockViewer(this, this.stocksManager); //StockViewer 객체 생성
 		this.setSize(500,400); //GUI크기 설정
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //창이 닫히면 프로그램 종료
