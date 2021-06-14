@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import StocksManagement.StocksManager;
 import stock.StockInput;
 
-public class StockViewer extends JPanel { //JFrame클래스에 상속.
+public class StockViewer extends JPanel { //JFrame클래스에 상속
 	
 	WindowFrame frame; //frame 선언
 	

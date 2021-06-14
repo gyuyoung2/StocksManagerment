@@ -17,7 +17,7 @@ public class ButtonAddListener implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) { 
+	public void actionPerformed(ActionEvent e) {  //Button Event
 		frame.getContentPane().removeAll();
 		frame.getContentPane().add(frame.getStockadder());
 		frame.revalidate();

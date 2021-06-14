@@ -25,7 +25,7 @@ public class ButtonViewListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		StockViewer stockViewer = frame.getStockviewer(); 
-		StocksManager stocksManager = getObject("stockmanager.ser"); //stocksManager °´Ã¼¸¦ °¡Á®¿È
+		StocksManager stocksManager = getObject("stockmanager.ser"); //stocksManager °´Ã¼¸¦ °¡Á®¿È.
 		stockViewer.setStocksManager(stocksManager);
 		
 		frame.getContentPane().removeAll();

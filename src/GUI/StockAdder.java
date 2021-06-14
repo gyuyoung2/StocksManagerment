@@ -13,7 +13,7 @@ import StocksManagement.StocksManager;
 
 public class StockAdder extends JPanel { //JFrame 클래스 상속
 	
-	WindowFrame frame; //frame 선언
+	WindowFrame frame; //frame 선언.
 	
 	StocksManager stocksManager;
 	

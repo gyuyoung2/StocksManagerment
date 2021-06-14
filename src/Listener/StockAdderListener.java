@@ -44,13 +44,13 @@ public class StockAdderListener implements ActionListener {
 		StockInput stock = new KoreaStock(StockKind.Korea); //생성자 생성
 		
 		try { //try catch문 생성
-			stock.setStocksName(fieldName.getText()); //setStockNamed으로  
-			stock.setBuyStock(Integer.parseInt(fieldPrice.getText()));
-			stock.setGoalPrice(Integer.parseInt(fieldGoal.getText()));
-			stock.setmemo(fieldMemo.getText());
-			stocksManager.addStocks(stock);
-			putObject(stocksManager, "stockmanager.ser");
-			stock.printInfo();
+			stock.setStocksName(fieldName.getText()); //setStockNamed으로 fieldName 저장
+			stock.setBuyStock(Integer.parseInt(fieldPrice.getText())); //setBuyStock으로 fieldPrice 저장
+			stock.setGoalPrice(Integer.parseInt(fieldGoal.getText())); //setGoalPrice으로 fieldGoal 저장
+			stock.setmemo(fieldMemo.getText()); //setMemo으로 fieldMemo 저장
+			stocksManager.addStocks(stock); //addStock()
+			putObject(stocksManager, "stockmanager.ser"); //putObject를 쓰므로 데이터를 불러옴
+			stock.printInfo(); //사용자가 입력한 내용들을 보여줌
 		} catch (NumberFormatException e1) {
 			e1.printStackTrace();
 		} catch (SellException e1) {
